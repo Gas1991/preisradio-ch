@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Pages de recherche (résultats dynamiques, non indexables)
+Disallow: /rechercher/
+
+# Bloquer toutes les URLs avec query string (duplicate content, filtres, pagination)
+Disallow: /*?
+
+Sitemap: https://toprix.tn/sitemap.xml

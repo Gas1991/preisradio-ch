@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+/* ─── Design tokens Toprix ─── */
+@theme inline {
+  --color-brand-primary:      #0F172A;
+  --color-brand-accent:       #F97316;
+  --color-brand-accent-hover: #EA6C0A;
+  --color-brand-muted:        #F8FAFC;
+  --color-brand-surface:      #FFFFFF;
+  --color-brand-text:         #1E293B;
+  --color-brand-subtle:       #64748B;
+  --color-brand-border:       #E2E8F0;
+  --font-sans:    var(--font-inter);
+  --font-heading: var(--font-space-grotesk);
+}
+
+*,*::before,*::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: #FFFFFF;
+  color: #1E293B;
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: #0F172A;
+}
+
+.font-heading {
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+}
+
+.nav-link { position: relative; padding-bottom: 2px; }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #F97316;
+  transition: width 0.2s ease;
+}
+.nav-link:hover::after { width: 100%; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #F8FAFC; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+
+/* ─── Marquee marques ─── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Empêcher AdSense auto-ads de bloquer la grille produits ─── */
+.products-grid-zone {
+  position: relative;
+  z-index: 1;
+}
+.products-grid-zone ins.adsbygoogle {
+  display: none !important;
+}
+.products-grid-zone iframe[id^="google_ads"],
+.products-grid-zone iframe[id^="aswift"] {
+  display: none !important;
+}

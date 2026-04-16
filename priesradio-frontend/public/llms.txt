@@ -1,0 +1,43 @@
+# Toprix — Comparateur de prix high-tech en Tunisie
+
+> Toprix compare les prix des smartphones, laptops, TV, électroménager et produits high-tech
+> sur les principales boutiques en ligne tunisiennes : Mytek, Tunisianet et Spacenet.
+
+## À propos
+
+- Site : https://toprix.tn
+- Type : Comparateur de prix e-commerce
+- Pays : Tunisie
+- Langue : Français
+- Catégories : Informatique, Téléphonie, TV & Son, Gaming, Électroménager, Photo, Surveillance, Énergie
+
+## Pages clés
+
+- Accueil : https://toprix.tn
+- Toutes les catégories : https://toprix.tn/categories
+- Recherche produits : https://toprix.tn/rechercher
+- Marques : https://toprix.tn/marque
+- Boutiques : https://toprix.tn/boutiques
+- À propos : https://toprix.tn/a-propos
+- Contact : https://toprix.tn/contact
+
+## Catégories principales
+
+- Informatique : https://toprix.tn/categories/informatique
+- Téléphonie : https://toprix.tn/categories/telephonie
+- TV & Son : https://toprix.tn/categories/tv-et-son
+- Gaming : https://toprix.tn/categories/gaming
+- Électroménager : https://toprix.tn/categories/electromenager
+- Photo & Vidéo : https://toprix.tn/categories/photo-et-video
+- Énergie : https://toprix.tn/categories/energie
+- Surveillance : https://toprix.tn/categories/surveillance
+
+## Sitemaps
+
+- Index : https://toprix.tn/sitemap.xml
+- Produits : https://toprix.tn/produit-sitemap-1.xml
+
+## Bots autorisés
+
+Les robots d'indexation IA sont les bienvenus.
+Voir robots.txt : https://toprix.tn/robots.txt
