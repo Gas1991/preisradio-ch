@@ -113,7 +113,7 @@ export default async function ProduitDetailPage({ params }: Props) {
         returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
         merchantReturnDays: 14,
         applicableCountry: 'CH',
-        returnPolicyUrl: RETURN_URLS[o.boutique?.toLowerCase() || ''] || 'https://priesradio.ch',
+        returnPolicyUrl: RETURN_URLS[o.boutique?.toLowerCase() || ''] || 'https://ch.priesradio.de',
       },
     })),
   }
@@ -122,12 +122,12 @@ export default async function ProduitDetailPage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Startseite', item: 'https://priesradio.ch' },
+      { '@type': 'ListItem', position: 1, name: 'Startseite', item: 'https://ch.priesradio.de' },
       ...(produit.categorie ? [
-        { '@type': 'ListItem', position: 2, name: produit.categorie_nom || produit.categorie, item: `https://priesradio.ch/kategorien/${produit.categorie}` },
-        { '@type': 'ListItem', position: 3, name: produit.nom, item: `https://priesradio.ch/produit/${slug}` },
+        { '@type': 'ListItem', position: 2, name: produit.categorie_nom || produit.categorie, item: `https://ch.priesradio.de/kategorien/${produit.categorie}` },
+        { '@type': 'ListItem', position: 3, name: produit.nom, item: `https://ch.priesradio.de/produit/${slug}` },
       ] : [
-        { '@type': 'ListItem', position: 2, name: produit.nom, item: `https://priesradio.ch/produit/${slug}` },
+        { '@type': 'ListItem', position: 2, name: produit.nom, item: `https://ch.priesradio.de/produit/${slug}` },
       ]),
     ],
   }

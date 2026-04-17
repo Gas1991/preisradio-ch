@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: '%s | Priesradio',
   },
   description: 'Preise vergleichen für Smartphones, Laptops und High-Tech in der Schweiz. Digitec, Interdiscount, Brack.',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://priesradio.ch'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://ch.priesradio.de'),
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'de_CH',
-    url: 'https://priesradio.ch',
+    url: 'https://ch.priesradio.de',
     siteName: 'Priesradio',
     title: 'Priesradio - Preisvergleich Schweiz',
     description: 'Preise vergleichen für Smartphones, Laptops und High-Tech in der Schweiz.',
@@ -62,15 +62,15 @@ const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Priesradio',
-  url: 'https://priesradio.ch',
-  logo: 'https://priesradio.ch/web-app-manifest-512x512.png',
+  url: 'https://ch.priesradio.de',
+  logo: 'https://ch.priesradio.de/web-app-manifest-512x512.png',
   description: 'Preisvergleich für High-Tech in der Schweiz. Digitec, Interdiscount, Brack.',
   foundingDate: '2026',
   areaServed: { '@type': 'Country', name: 'Switzerland' },
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer support',
-    email: 'contact@priesradio.ch',
+    email: 'contact@priesradio.de',
     availableLanguage: ['German'],
   },
   sameAs: [],
@@ -80,11 +80,11 @@ const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'Priesradio',
-  url: 'https://priesradio.ch',
+  url: 'https://ch.priesradio.de',
   description: 'Preisvergleich für High-Tech in der Schweiz',
   potentialAction: {
     '@type': 'SearchAction',
-    target: 'https://priesradio.ch/suchen?q={search_term_string}',
+    target: 'https://ch.priesradio.de/suchen?q={search_term_string}',
     'query-input': 'required name=search_term_string',
   },
 }
