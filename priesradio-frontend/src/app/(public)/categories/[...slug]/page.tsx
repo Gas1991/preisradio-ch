@@ -16,7 +16,6 @@ interface Props {
     boutique?: string
     prix_min?: string
     prix_max?: string
-    en_promo?: string
     en_stock?: string
     tri?: string
   }>
@@ -56,7 +55,6 @@ export default async function CategorieDetailPage({ params, searchParams }: Prop
     boutique = '',
     prix_min = '',
     prix_max = '',
-    en_promo = '',
     en_stock = '',
     tri = '',
   } = await searchParams
@@ -64,7 +62,7 @@ export default async function CategorieDetailPage({ params, searchParams }: Prop
   const fullSlug = slug.join('/')
   const isSubcat = slug.length >= 2
   const marques = marque.split(',').filter(Boolean)
-  const hasFilters = !!(marque || boutique || prix_min || prix_max || en_promo === '1' || en_stock === '1')
+  const hasFilters = !!(marque || boutique || prix_min || prix_max || en_stock === '1')
 
   let categorie = null
   let produits: any[] = []
@@ -80,7 +78,6 @@ export default async function CategorieDetailPage({ params, searchParams }: Prop
           boutique: boutique || undefined,
           prix_min: prix_min ? Number(prix_min) : undefined,
           prix_max: prix_max ? Number(prix_max) : undefined,
-          en_promo: en_promo === '1',
           en_stock: en_stock === '1',
           tri: tri || undefined,
         }),
@@ -196,7 +193,6 @@ export default async function CategorieDetailPage({ params, searchParams }: Prop
             marques,
             prix_min,
             prix_max,
-            en_promo: en_promo === '1',
             en_stock: en_stock === '1',
             tri,
           }}

@@ -19,7 +19,6 @@ interface Props {
     marque?: string
     prix_min?: string
     prix_max?: string
-    en_promo?: string
     boutique?: string
     en_stock?: string
     tri?: string
@@ -35,14 +34,13 @@ export default async function RechercherPage({ searchParams }: Props) {
     marque = '',
     prix_min = '',
     prix_max = '',
-    en_promo = '',
     boutique = '',
     en_stock = '',
     tri = '',
   } = params
 
   const marques = marque.split(',').filter(Boolean)
-  const hasSearch = !!(q || categorie || marque || prix_min || prix_max || en_promo === '1' || boutique || en_stock === '1')
+  const hasSearch = !!(q || categorie || marque || prix_min || prix_max || boutique || en_stock === '1')
 
   let produits = null
   let erreur = null
@@ -56,7 +54,6 @@ export default async function RechercherPage({ searchParams }: Props) {
         marque: marques.length > 0 ? marques : undefined,
         prix_min: prix_min ? Number(prix_min) : undefined,
         prix_max: prix_max ? Number(prix_max) : undefined,
-        en_promo: en_promo === '1',
         boutique: boutique || undefined,
         en_stock: en_stock === '1',
         tri: tri || undefined,
@@ -121,7 +118,6 @@ export default async function RechercherPage({ searchParams }: Props) {
               marques,
               prix_min,
               prix_max,
-              en_promo: en_promo === '1',
               en_stock: en_stock === '1',
               tri,
             }}

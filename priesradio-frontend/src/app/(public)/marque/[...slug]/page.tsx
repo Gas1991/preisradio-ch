@@ -16,7 +16,6 @@ interface Props {
     tri?: string
     prix_min?: string
     prix_max?: string
-    en_promo?: string
     en_stock?: string
   }>
 }
@@ -49,7 +48,6 @@ export default async function MarqueDetailPage({ params, searchParams }: Props) 
     tri = '',
     prix_min = '',
     prix_max = '',
-    en_promo = '',
     en_stock = '',
   } = await searchParams
 
@@ -69,7 +67,6 @@ export default async function MarqueDetailPage({ params, searchParams }: Props) 
       tri: tri || undefined,
       prix_min: prix_min ? Number(prix_min) : undefined,
       prix_max: prix_max ? Number(prix_max) : undefined,
-      en_promo: en_promo === '1',
       en_stock: en_stock === '1',
     })
   } catch {}
@@ -123,7 +120,6 @@ export default async function MarqueDetailPage({ params, searchParams }: Props) 
             tri,
             prix_min,
             prix_max,
-            en_promo: en_promo === '1',
             en_stock: en_stock === '1',
           }}
           hideBrand={true}
