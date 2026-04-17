@@ -66,9 +66,9 @@ export default async function SuchenPage({ searchParams }: Props) {
   return (
     <div>
       {/* Hero Suche */}
-      <section className="bg-[#0F172A] py-10 px-4">
+      <section className="bg-[#003087] py-10 px-4">
         <div className="max-w-3xl mx-auto">
-          <p className="text-[#F97316] text-xs font-semibold uppercase tracking-widest mb-3">Preisvergleich</p>
+          <p className="text-[#5B9BD5] text-xs font-semibold uppercase tracking-widest mb-3">Preisvergleich</p>
           <form method="get" className="flex items-center bg-white rounded-xl overflow-hidden shadow-2xl shadow-black/40">
             <div className="flex items-center gap-3 flex-1 px-5">
               <Search size={18} className="text-slate-400 shrink-0" />
@@ -83,7 +83,7 @@ export default async function SuchenPage({ searchParams }: Props) {
             </div>
             <button
               type="submit"
-              className="shrink-0 bg-[#F97316] hover:bg-[#EA6C0A] text-white font-semibold text-sm px-6 py-4 transition-colors"
+              className="shrink-0 bg-[#0052CC] hover:bg-[#003B9C] text-white font-semibold text-sm px-6 py-4 transition-colors"
             >
               Vergleichen
             </button>
@@ -98,7 +98,7 @@ export default async function SuchenPage({ searchParams }: Props) {
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] mb-4">
               <Search size={28} className="text-slate-300" />
             </div>
-            <p className="font-heading text-[#0F172A] text-xl font-semibold mb-2">Was suchen Sie?</p>
+            <p className="font-heading text-[#003087] text-xl font-semibold mb-2">Was suchen Sie?</p>
             <p className="text-[#64748B] text-sm">Geben Sie einen Produktnamen ein, um die Preise zu vergleichen.</p>
           </div>
         )}

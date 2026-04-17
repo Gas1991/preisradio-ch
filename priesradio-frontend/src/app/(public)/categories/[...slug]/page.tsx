@@ -31,11 +31,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const { categorie } = await getCategorieDetail(fullSlug)
     const title = isSubcat
-      ? `${slugToLabel(slug[slug.length - 1])} – ${categorie.nom} au meilleur prix en Tunisie`
-      : `${categorie.nom} – Produits au meilleur prix en Tunisie`
+      ? `${slugToLabel(slug[slug.length - 1])} – ${categorie.nom} zum besten Preis in der Schweiz`
+      : `${categorie.nom} – Produkte zum besten Preis in der Schweiz`
     const description = isSubcat
-      ? `Découvrez les meilleurs ${slugToLabel(slug[slug.length - 1])} en Tunisie. Comparez les prix ${categorie.nom} sur Mytek, Tunisianet et Spacenet et trouvez la meilleure offre.`
-      : `Découvrez tous les produits ${categorie.nom} en Tunisie. Comparez les prix sur Mytek, Tunisianet et Spacenet pour trouver les meilleures offres.`
+      ? `Entdecken Sie die besten ${slugToLabel(slug[slug.length - 1])} in der Schweiz. Vergleichen Sie Preise für ${categorie.nom} bei Digitec, Interdiscount und Brack.`
+      : `Entdecken Sie alle ${categorie.nom}-Produkte in der Schweiz. Vergleichen Sie Preise bei Digitec, Interdiscount und Brack, um die besten Angebote zu finden.`
     return {
       title,
       description,
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       openGraph: { title, description, type: 'website' },
     }
   } catch {
-    return { title: 'Catégorie introuvable' }
+    return { title: 'Kategorie nicht gefunden' }
   }
 }
 
@@ -99,14 +99,14 @@ export default async function CategorieDetailPage({ params, searchParams }: Prop
   if (!categorie) notFound()
 
   const breadcrumbItems = [
-    { name: 'Accueil', url: 'https://toprix.tn' },
-    { name: 'Catégories', url: 'https://toprix.tn/categories' },
+    { name: 'Startseite', url: 'https://priesradio.ch' },
+    { name: 'Kategorien', url: 'https://priesradio.ch/categories' },
     ...(isSubcat
       ? [
-          { name: slugToLabel(slug[0]), url: `https://toprix.tn/categories/${slug[0]}` },
-          { name: categorie.nom, url: `https://toprix.tn/categories/${fullSlug}` },
+          { name: slugToLabel(slug[0]), url: `https://priesradio.ch/categories/${slug[0]}` },
+          { name: categorie.nom, url: `https://priesradio.ch/categories/${fullSlug}` },
         ]
-      : [{ name: categorie.nom, url: `https://toprix.tn/categories/${fullSlug}` }]
+      : [{ name: categorie.nom, url: `https://priesradio.ch/categories/${fullSlug}` }]
     ),
   ]
 
@@ -125,14 +125,14 @@ export default async function CategorieDetailPage({ params, searchParams }: Prop
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
     <div>
-      {/* Breadcrumb hero */}
-      <section className="bg-[#0F172A] py-8 px-4 relative overflow-hidden">
-        <div className="absolute -top-20 right-0 w-64 h-64 bg-[#F97316] rounded-full blur-[100px] opacity-10 pointer-events-none" />
+      {/* Breadcrumb Hero */}
+      <section className="bg-[#003087] py-8 px-4 relative overflow-hidden">
+        <div className="absolute -top-20 right-0 w-64 h-64 bg-[#0052CC] rounded-full blur-[100px] opacity-10 pointer-events-none" />
         <div className="max-w-7xl mx-auto relative">
           <nav className="flex items-center gap-1.5 text-xs text-slate-500 mb-4 flex-wrap">
-            <Link href="/" className="hover:text-slate-300 transition-colors">Accueil</Link>
+            <Link href="/" className="hover:text-slate-300 transition-colors">Startseite</Link>
             <ChevronRight size={12} />
-            <Link href="/categories" className="hover:text-slate-300 transition-colors">Catégories</Link>
+            <Link href="/categories" className="hover:text-slate-300 transition-colors">Kategorien</Link>
             {isSubcat && categorie.parent_slug && (
               <>
                 <ChevronRight size={12} />
@@ -148,42 +148,42 @@ export default async function CategorieDetailPage({ params, searchParams }: Prop
             <span className="text-slate-300">{categorie.nom}</span>
           </nav>
           <h1 className="text-2xl md:text-3xl font-bold" style={{ color: '#F1F5F9' }}>
-            {categorie.nom} : les bons plans de {new Date().toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })}
+            {categorie.nom} – Beste Angebote {new Date().toLocaleDateString('de-CH', { month: 'long', year: 'numeric' })}
           </h1>
           <p className="mt-2 text-slate-400 text-sm leading-relaxed max-w-2xl">
-            Comparez les prix de la catégorie <span className="text-white font-medium">{categorie.nom}</span> entre les principales boutiques en ligne tunisiennes. {(meta?.total_items ?? 0) > 0 ? `${meta?.total_items} produit${(meta?.total_items ?? 0) > 1 ? 's' : ''}` : 'Des produits'} à découvrir.
+            Vergleichen Sie die Preise der Kategorie <span className="text-white font-medium">{categorie.nom}</span> bei den führenden Schweizer Online-Shops. {(meta?.total_items ?? 0) > 0 ? `${meta?.total_items} Produkt${(meta?.total_items ?? 0) > 1 ? 'e' : ''}` : 'Produkte'} zu entdecken.
           </p>
         </div>
       </section>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Sous-catégories (uniquement pour catégorie parente) */}
+        {/* Unterkategorien (nur für Hauptkategorien) */}
         {!isSubcat && categorie.sous_categories && categorie.sous_categories.length > 0 && (
           <div className="pt-8 pb-2">
-            <h2 className="font-heading text-[#0F172A] text-lg font-semibold mb-4">Sous-catégories</h2>
+            <h2 className="font-heading text-[#003087] text-lg font-semibold mb-4">Unterkategorien</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
               {categorie.sous_categories.map((sous) => (
                 <Link
                   key={sous.id}
                   href={`/categories/${sous.slug}`}
-                  className="group flex items-center justify-between bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2.5 hover:border-[#F97316]/40 hover:bg-orange-50/40 hover:shadow-sm transition-all"
+                  className="group flex items-center justify-between bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2.5 hover:border-[#0052CC]/40 hover:bg-blue-50/40 hover:shadow-sm transition-all"
                 >
                   <div className="min-w-0">
-                    <p className="text-xs font-medium text-[#334155] group-hover:text-[#F97316] truncate transition-colors">
+                    <p className="text-xs font-medium text-[#334155] group-hover:text-[#0052CC] truncate transition-colors">
                       {sous.nom}
                     </p>
                     {sous.nombre_produits !== undefined && (
-                      <p className="text-[10px] text-[#94A3B8]">{sous.nombre_produits} produits</p>
+                      <p className="text-[10px] text-[#94A3B8]">{sous.nombre_produits} Produkte</p>
                     )}
                   </div>
-                  <ChevronRight size={12} className="text-[#CBD5E1] group-hover:text-[#F97316] transition-colors shrink-0 ml-1" />
+                  <ChevronRight size={12} className="text-[#CBD5E1] group-hover:text-[#0052CC] transition-colors shrink-0 ml-1" />
                 </Link>
               ))}
             </div>
           </div>
         )}
 
-        {/* Filtres + produits CSR */}
+        {/* Filter + Produkte CSR */}
         <FilteredProductsSection
           initialProducts={produits}
           initialMeta={meta}

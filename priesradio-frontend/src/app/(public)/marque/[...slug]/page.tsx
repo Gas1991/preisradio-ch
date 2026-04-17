@@ -26,8 +26,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const res = await getMarque(name)
     const marque = (res as any).marque ?? res
-    const title = `${marque.nom.toUpperCase()} – Produits au meilleur prix en Tunisie`
-    const description = `Découvrez tous les produits ${marque.nom} en Tunisie. Comparez les prix sur Mytek, Tunisianet et Spacenet pour trouver les meilleures offres.`
+    const title = `${marque.nom.toUpperCase()} – Produkte zum besten Preis in der Schweiz`
+    const description = `Entdecken Sie alle ${marque.nom}-Produkte in der Schweiz. Vergleichen Sie Preise bei Digitec, Interdiscount und Brack, um die besten Angebote zu finden.`
     return {
       title,
       description,
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       openGraph: { title, description, type: 'website' },
     }
   } catch {
-    return { title: 'Marque introuvable' }
+    return { title: 'Marke nicht gefunden' }
   }
 }
 
@@ -56,7 +56,6 @@ export default async function MarqueDetailPage({ params, searchParams }: Props) 
 
   try {
     const res = await getMarque(name)
-    // L'API retourne { data, meta, marque: { slug, nom } }
     marque = (res as any).marque ?? res
   } catch { notFound() }
   try {
@@ -73,39 +72,39 @@ export default async function MarqueDetailPage({ params, searchParams }: Props) 
 
   if (!marque) notFound()
 
-  const nbResultats = produits?.meta?.total_items ?? produits?.data.length ?? 0
+  const nbResultate = produits?.meta?.total_items ?? produits?.data.length ?? 0
 
   return (
     <div>
-      {/* Hero marque */}
-      <section className="bg-[#0F172A] py-8 px-4 relative overflow-hidden">
-        <div className="absolute -top-20 right-0 w-64 h-64 bg-[#F97316] rounded-full blur-[100px] opacity-10 pointer-events-none" />
+      {/* Marken-Hero */}
+      <section className="bg-[#003087] py-8 px-4 relative overflow-hidden">
+        <div className="absolute -top-20 right-0 w-64 h-64 bg-[#0052CC] rounded-full blur-[100px] opacity-10 pointer-events-none" />
         <div className="max-w-7xl mx-auto relative">
 
-          {/* Breadcrumb + bouton retour */}
+          {/* Breadcrumb + Zurück-Button */}
           <div className="flex items-center gap-3 mb-4">
             <Link
               href="/marque"
               className="flex items-center justify-center w-8 h-8 rounded-lg bg-white/5 border border-white/10 text-slate-400 hover:bg-white/10 hover:text-white transition-all shrink-0"
-              aria-label="Retour aux marques"
+              aria-label="Zurück zu den Marken"
             >
               <ChevronLeft size={16} />
             </Link>
             <nav className="flex items-center gap-1.5 text-xs text-slate-500">
-              <Link href="/" className="hover:text-slate-300 transition-colors">Accueil</Link>
+              <Link href="/" className="hover:text-slate-300 transition-colors">Startseite</Link>
               <ChevronRight size={12} />
-              <Link href="/marque" className="hover:text-slate-300 transition-colors">Marques</Link>
+              <Link href="/marque" className="hover:text-slate-300 transition-colors">Marken</Link>
               <ChevronRight size={12} />
               <span className="text-slate-300 font-medium">{marque.nom}</span>
             </nav>
           </div>
 
-          {/* Titre marque */}
+          {/* Marken-Titel */}
           <h1 className="text-2xl md:text-3xl font-bold" style={{ color: '#F1F5F9' }}>
-            Produits {marque.nom} – au meilleur prix en Tunisie
+            {marque.nom} Produkte – zum besten Preis in der Schweiz
           </h1>
           <p className="mt-2 text-slate-400 text-sm leading-relaxed max-w-2xl">
-            Comparez les prix <span className="text-white font-medium">{marque.nom}</span> entre les principales boutiques en ligne tunisiennes. Trouvez la meilleure offre parmi {nbResultats > 0 ? `${nbResultats} produit${nbResultats > 1 ? 's' : ''}` : 'les produits'} disponibles.
+            Vergleichen Sie die Preise von <span className="text-white font-medium">{marque.nom}</span> bei den führenden Schweizer Online-Shops. Finden Sie das beste Angebot unter {nbResultate > 0 ? `${nbResultate} Produkt${nbResultate > 1 ? 'en' : ''}` : 'den verfügbaren Produkten'}.
           </p>
         </div>
       </section>

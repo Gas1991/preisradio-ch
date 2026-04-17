@@ -77,8 +77,8 @@ export default async function MarkeDetailPage({ params, searchParams }: Props) {
   return (
     <div>
       {/* Marken-Hero */}
-      <section className="bg-[#0F172A] py-8 px-4 relative overflow-hidden">
-        <div className="absolute -top-20 right-0 w-64 h-64 bg-[#F97316] rounded-full blur-[100px] opacity-10 pointer-events-none" />
+      <section className="bg-[#003087] py-8 px-4 relative overflow-hidden">
+        <div className="absolute -top-20 right-0 w-64 h-64 bg-[#0052CC] rounded-full blur-[100px] opacity-10 pointer-events-none" />
         <div className="max-w-7xl mx-auto relative">
 
           {/* Breadcrumb + Zurück-Button */}

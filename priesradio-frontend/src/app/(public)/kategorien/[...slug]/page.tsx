@@ -125,9 +125,9 @@ export default async function KategorieDetailPage({ params, searchParams }: Prop
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
     <div>
-      {/* Breadcrumb hero */}
-      <section className="bg-[#0F172A] py-8 px-4 relative overflow-hidden">
-        <div className="absolute -top-20 right-0 w-64 h-64 bg-[#F97316] rounded-full blur-[100px] opacity-10 pointer-events-none" />
+      {/* Breadcrumb Hero */}
+      <section className="bg-[#003087] py-8 px-4 relative overflow-hidden">
+        <div className="absolute -top-20 right-0 w-64 h-64 bg-[#0052CC] rounded-full blur-[100px] opacity-10 pointer-events-none" />
         <div className="max-w-7xl mx-auto relative">
           <nav className="flex items-center gap-1.5 text-xs text-slate-500 mb-4 flex-wrap">
             <Link href="/" className="hover:text-slate-300 transition-colors">Startseite</Link>
@@ -160,23 +160,23 @@ export default async function KategorieDetailPage({ params, searchParams }: Prop
         {/* Unterkategorien (nur für Hauptkategorien) */}
         {!isSubcat && categorie.sous_categories && categorie.sous_categories.length > 0 && (
           <div className="pt-8 pb-2">
-            <h2 className="font-heading text-[#0F172A] text-lg font-semibold mb-4">Unterkategorien</h2>
+            <h2 className="font-heading text-[#003087] text-lg font-semibold mb-4">Unterkategorien</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
               {categorie.sous_categories.map((sous: any) => (
                 <Link
                   key={sous.id}
                   href={`/kategorien/${sous.slug}`}
-                  className="group flex items-center justify-between bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2.5 hover:border-[#F97316]/40 hover:bg-orange-50/40 hover:shadow-sm transition-all"
+                  className="group flex items-center justify-between bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2.5 hover:border-[#0052CC]/40 hover:bg-blue-50/40 hover:shadow-sm transition-all"
                 >
                   <div className="min-w-0">
-                    <p className="text-xs font-medium text-[#334155] group-hover:text-[#F97316] truncate transition-colors">
+                    <p className="text-xs font-medium text-[#334155] group-hover:text-[#0052CC] truncate transition-colors">
                       {sous.nom}
                     </p>
                     {sous.nombre_produits !== undefined && (
                       <p className="text-[10px] text-[#94A3B8]">{sous.nombre_produits} Produkte</p>
                     )}
                   </div>
-                  <ChevronRight size={12} className="text-[#CBD5E1] group-hover:text-[#F97316] transition-colors shrink-0 ml-1" />
+                  <ChevronRight size={12} className="text-[#CBD5E1] group-hover:text-[#0052CC] transition-colors shrink-0 ml-1" />
                 </Link>
               ))}
             </div>

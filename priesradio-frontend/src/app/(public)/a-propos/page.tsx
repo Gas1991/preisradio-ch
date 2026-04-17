@@ -4,54 +4,54 @@ import PageHero from '@/components/ui/PageHero'
 import { Zap, Search, ShoppingBag, TrendingUp, Store, CheckCircle } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'À propos de Toprix',
-  description: 'Toprix est le comparateur de prix high-tech en Tunisie. Comparez gratuitement les prix sur Mytek, Tunisianet et Spacenet pour trouver la meilleure offre.',
-  alternates: { canonical: '/a-propos' },
+  title: 'Über uns | Priesradio',
+  description: 'Priesradio ist der Schweizer Preisvergleich für High-Tech. Vergleiche Preise bei Digitec, Interdiscount und Brack.',
+  alternates: { canonical: '/ueber-uns' },
   openGraph: {
-    title: 'À propos de Toprix — Comparateur de prix en Tunisie',
-    description: 'Toprix compare les prix des smartphones, laptops et produits high-tech sur les principales boutiques tunisiennes.',
+    title: 'Über uns – Priesradio | Preisvergleich Schweiz',
+    description: 'Priesradio vergleicht die Preise von Smartphones, Laptops und anderen High-Tech-Produkten bei den wichtigsten Schweizer Online-Shops.',
     type: 'website',
   },
 }
 
-const VALEURS = [
-  { icon: Search,      titre: 'Transparence',    desc: 'Tous les prix, toutes les boutiques, en temps réel.' },
-  { icon: Zap,         titre: 'Rapidité',        desc: 'Trouvez la meilleure offre en quelques secondes.' },
-  { icon: ShoppingBag, titre: 'Large catalogue', desc: '+50 000 produits high-tech référencés.' },
-  { icon: TrendingUp,  titre: 'Économies',       desc: "Comparez et économisez jusqu'à 30% sur vos achats." },
+const WERTE = [
+  { icon: Search,      titel: 'Transparenz',       beschr: 'Alle Preise, alle Shops, in Echtzeit.' },
+  { icon: Zap,         titel: 'Schnelligkeit',      beschr: 'Das beste Angebot in wenigen Sekunden finden.' },
+  { icon: ShoppingBag, titel: 'Grosses Sortiment',  beschr: '+100 000 High-Tech-Produkte referenziert.' },
+  { icon: TrendingUp,  titel: 'Sparen',             beschr: 'Vergleichen und bis zu 30 % sparen.' },
 ]
 
-const BOUTIQUES = [
-  { nom: 'Mytek',      couleur: 'bg-blue-50 border-blue-100 text-blue-700' },
-  { nom: 'Tunisianet', couleur: 'bg-green-50 border-green-100 text-green-700' },
-  { nom: 'Spacenet',   couleur: 'bg-purple-50 border-purple-100 text-purple-700' },
+const SHOPS = [
+  { nom: 'Digitec',       couleur: 'bg-blue-50 border-blue-100 text-blue-700' },
+  { nom: 'Interdiscount', couleur: 'bg-red-50 border-red-100 text-red-700' },
+  { nom: 'Brack',         couleur: 'bg-green-50 border-green-100 text-green-700' },
 ]
 
-const CATEGORIES = [
-  'Informatique', 'Téléphonie', 'TV & Son', 'Gaming',
-  'Électroménager', 'Photo & Vidéo', 'Énergie', 'Surveillance',
+const KATEGORIEN = [
+  'Smartphones', 'Laptops', 'Tablets', 'Gaming',
+  'TV & Audio', 'Haushaltsgeräte', 'Computer', 'Foto & Video',
 ]
 
 const FAQ = [
   {
-    q: 'Comment Toprix récupère-t-il les prix ?',
-    r: 'Toprix collecte et met à jour automatiquement les prix depuis les sites officiels de Mytek, Tunisianet et Spacenet. Les données sont actualisées régulièrement pour vous offrir des comparaisons fiables.',
+    f: 'Wie ruft Priesradio die Preise ab?',
+    a: 'Priesradio sammelt und aktualisiert automatisch die Preise von den offiziellen Websites von Digitec, Interdiscount und Brack. Die Daten werden regelmässig aktualisiert, um zuverlässige Vergleiche zu bieten.',
   },
   {
-    q: 'Toprix est-il gratuit ?',
-    r: 'Oui, Toprix est entièrement gratuit. Vous pouvez comparer les prix et accéder à toutes les offres sans aucun abonnement.',
+    f: 'Ist Priesradio kostenlos?',
+    a: 'Ja, Priesradio ist vollständig kostenlos. Sie können Preise vergleichen und auf alle Angebote zugreifen, ohne ein Abonnement abschliessen zu müssen.',
   },
   {
-    q: 'Est-ce que je peux acheter directement sur Toprix ?',
-    r: 'Non, Toprix est un comparateur. Lorsque vous trouvez la meilleure offre, vous êtes redirigé vers le site officiel de la boutique pour finaliser votre achat.',
+    f: 'Kann ich direkt auf Priesradio kaufen?',
+    a: 'Nein, Priesradio ist ein Preisvergleichsportal. Wenn Sie das beste Angebot gefunden haben, werden Sie auf die offizielle Website des Shops weitergeleitet, um den Kauf abzuschliessen.',
   },
   {
-    q: 'Quelles boutiques sont comparées ?',
-    r: 'Actuellement Toprix compare les prix de Mytek, Tunisianet et Spacenet — les trois principales boutiques high-tech en ligne en Tunisie.',
+    f: 'Welche Shops werden verglichen?',
+    a: 'Priesradio vergleicht derzeit die Preise von Digitec, Interdiscount und Brack — den drei wichtigsten High-Tech-Online-Shops in der Schweiz.',
   },
   {
-    q: 'À quelle fréquence les prix sont-ils mis à jour ?',
-    r: 'Les prix sont mis à jour automatiquement et régulièrement pour refléter les offres en temps réel des boutiques partenaires.',
+    f: 'Wie oft werden die Preise aktualisiert?',
+    a: 'Die Preise werden automatisch und regelmässig aktualisiert, um die Echtzeit-Angebote der Partner-Shops widerzuspiegeln.',
   },
 ]
 
@@ -59,26 +59,26 @@ export default function AProposPage() {
   const faqJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: FAQ.map(({ q, r }) => ({
+    mainEntity: FAQ.map(({ f, a }) => ({
       '@type': 'Question',
-      name: q,
-      acceptedAnswer: { '@type': 'Answer', text: r },
+      name: f,
+      acceptedAnswer: { '@type': 'Answer', text: a },
     })),
   }
 
   const aboutJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'AboutPage',
-    name: 'À propos de Toprix',
-    url: 'https://toprix.tn/a-propos',
+    name: 'Über uns – Priesradio',
+    url: 'https://priesradio.ch/ueber-uns',
     mainEntity: {
       '@type': 'Organization',
-      name: 'Toprix',
-      url: 'https://toprix.tn',
-      description: 'Comparateur de prix high-tech en Tunisie. Compare les prix sur Mytek, Tunisianet et Spacenet.',
-      foundingDate: '2024',
-      areaServed: 'Tunisia',
-      knowsAbout: ['comparaison de prix', 'high-tech', 'Tunisie', 'Mytek', 'Tunisianet', 'Spacenet'],
+      name: 'Priesradio',
+      url: 'https://priesradio.ch',
+      description: 'Preisvergleich für High-Tech in der Schweiz. Vergleicht Preise bei Digitec, Interdiscount und Brack.',
+      foundingDate: '2025',
+      areaServed: 'Switzerland',
+      knowsAbout: ['Preisvergleich', 'High-Tech', 'Schweiz', 'Digitec', 'Interdiscount', 'Brack'],
     },
   }
 
@@ -89,9 +89,9 @@ export default function AProposPage() {
 
       <div>
         <PageHero
-          surtitre="À propos"
-          titre="Toprix, c'est quoi ?"
-          sousTitre="Le premier comparateur de produits high-tech en Tunisie."
+          surtitre="Über uns"
+          titre="Was ist Priesradio?"
+          sousTitre="Der erste Preisvergleich für High-Tech-Produkte in der Schweiz."
         />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
@@ -99,41 +99,41 @@ export default function AProposPage() {
           {/* Mission */}
           <section className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="text-[#F97316] text-xs font-semibold uppercase tracking-widest mb-2">Notre mission</p>
-              <h2 className="font-heading text-[#0F172A] text-2xl md:text-3xl font-bold mb-4">
-                Acheter mieux, dépenser moins
+              <p className="text-[#0052CC] text-xs font-semibold uppercase tracking-widest mb-2">Unsere Mission</p>
+              <h2 className="font-heading text-[#003087] text-2xl md:text-3xl font-bold mb-4">
+                Besser kaufen, weniger ausgeben
               </h2>
               <p className="text-[#64748B] text-sm leading-relaxed mb-4">
-                Toprix compare en temps réel les prix de centaines de boutiques en ligne tunisiennes
-                pour vous permettre de trouver le meilleur deal sur vos produits high-tech —
-                smartphones, laptops, écrans, audio, gaming et bien plus.
+                Priesradio vergleicht in Echtzeit die Preise von Digitec, Interdiscount und Brack,
+                damit Sie das beste Angebot für Ihre High-Tech-Produkte finden —
+                Smartphones, Laptops, TV, Audio, Gaming und vieles mehr.
               </p>
               <p className="text-[#64748B] text-sm leading-relaxed">
-                Notre service est entièrement gratuit pour les consommateurs. Nous ne touchons
-                pas de commission sur les ventes et notre seul objectif est votre satisfaction.
+                Unser Service ist für Konsumenten vollständig kostenlos. Wir erhalten keine
+                Provision auf Verkäufe — unser einziges Ziel ist Ihre Zufriedenheit.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-3">
-              {VALEURS.map(({ icon: Icon, titre, desc }) => (
-                <div key={titre} className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-4">
-                  <div className="w-8 h-8 rounded-xl bg-[#F97316]/10 flex items-center justify-center mb-3">
-                    <Icon size={15} className="text-[#F97316]" />
+              {WERTE.map(({ icon: Icon, titel, beschr }) => (
+                <div key={titel} className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-4">
+                  <div className="w-8 h-8 rounded-xl bg-[#0052CC]/10 flex items-center justify-center mb-3">
+                    <Icon size={15} className="text-[#0052CC]" />
                   </div>
-                  <p className="font-heading font-semibold text-[#0F172A] text-sm mb-1">{titre}</p>
-                  <p className="text-[#64748B] text-xs leading-relaxed">{desc}</p>
+                  <p className="font-heading font-semibold text-[#003087] text-sm mb-1">{titel}</p>
+                  <p className="text-[#64748B] text-xs leading-relaxed">{beschr}</p>
                 </div>
               ))}
             </div>
           </section>
 
-          {/* Boutiques */}
+          {/* Shops */}
           <section>
-            <h2 className="font-heading text-[#0F172A] text-xl font-bold mb-2">Boutiques comparées</h2>
+            <h2 className="font-heading text-[#003087] text-xl font-bold mb-2">Verglichene Shops</h2>
             <p className="text-[#64748B] text-sm mb-5">
-              Toprix agrège les données de 3 boutiques officielles tunisiennes.
+              Priesradio aggregiert Daten von 3 offiziellen Schweizer Shops.
             </p>
             <div className="flex flex-wrap gap-3">
-              {BOUTIQUES.map(({ nom, couleur }) => (
+              {SHOPS.map(({ nom, couleur }) => (
                 <span key={nom} className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-semibold ${couleur}`}>
                   <Store size={14} />
                   {nom}
@@ -142,17 +142,17 @@ export default function AProposPage() {
             </div>
           </section>
 
-          {/* Categories */}
+          {/* Kategorien */}
           <section>
-            <h2 className="font-heading text-[#0F172A] text-xl font-bold mb-2">Catégories disponibles</h2>
+            <h2 className="font-heading text-[#003087] text-xl font-bold mb-2">Verfügbare Kategorien</h2>
             <p className="text-[#64748B] text-sm mb-5">
-              Plus de 50 000 produits comparés dans 8 catégories principales.
+              Über 100 000 Produkte verglichen in 8 Hauptkategorien.
             </p>
             <div className="flex flex-wrap gap-2">
-              {CATEGORIES.map(cat => (
-                <span key={cat} className="bg-[#F8FAFC] border border-[#E2E8F0] text-[#334155] text-sm px-3 py-1.5 rounded-full flex items-center gap-1.5">
-                  <CheckCircle size={12} className="text-[#F97316]" />
-                  {cat}
+              {KATEGORIEN.map(kat => (
+                <span key={kat} className="bg-[#F8FAFC] border border-[#E2E8F0] text-[#334155] text-sm px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                  <CheckCircle size={12} className="text-[#0052CC]" />
+                  {kat}
                 </span>
               ))}
             </div>
@@ -160,30 +160,30 @@ export default function AProposPage() {
 
           {/* FAQ */}
           <section>
-            <h2 className="font-heading text-[#0F172A] text-xl font-bold mb-6">Questions fréquentes</h2>
+            <h2 className="font-heading text-[#003087] text-xl font-bold mb-6">Häufige Fragen</h2>
             <div className="space-y-4">
-              {FAQ.map(({ q, r }) => (
-                <div key={q} className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-5">
-                  <p className="font-semibold text-[#0F172A] text-sm mb-2">{q}</p>
-                  <p className="text-[#475569] text-sm leading-relaxed">{r}</p>
+              {FAQ.map(({ f, a }) => (
+                <div key={f} className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-5">
+                  <p className="font-semibold text-[#003087] text-sm mb-2">{f}</p>
+                  <p className="text-[#475569] text-sm leading-relaxed">{a}</p>
                 </div>
               ))}
             </div>
           </section>
 
-          {/* CTA boutique */}
-          <section className="bg-[#0F172A] rounded-2xl p-8 text-center">
+          {/* CTA Shop */}
+          <section className="bg-[#003087] rounded-2xl p-8 text-center">
             <h2 className="font-heading text-white text-xl font-bold mb-2">
-              Vous avez une boutique high-tech ?
+              Sie haben einen High-Tech-Shop?
             </h2>
             <p className="text-slate-400 text-sm mb-6">
-              Rejoignez Toprix gratuitement et touchez des milliers d'acheteurs.
+              Treten Sie Priesradio kostenlos bei und erreichen Sie Tausende von Käufern.
             </p>
             <Link
-              href="/ajouter"
-              className="inline-flex items-center gap-2 bg-[#F97316] hover:bg-[#EA6C0A] text-white font-semibold px-6 py-3 rounded-xl transition-colors text-sm"
+              href="/hinzufuegen"
+              className="inline-flex items-center gap-2 bg-[#D0021B] hover:bg-[#B50018] text-white font-semibold px-6 py-3 rounded-xl transition-colors text-sm"
             >
-              Référencer ma boutique
+              Meinen Shop referenzieren
             </Link>
           </section>
 

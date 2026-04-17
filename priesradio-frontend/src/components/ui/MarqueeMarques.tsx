@@ -8,7 +8,7 @@ const MARQUES = [
 ]
 
 export default function MarqueeMarques() {
-  // Dupliquer pour le défilement infini sans saut
+  // Verdoppeln für nahtloses Endlos-Scrollen
   const doubled = [...MARQUES, ...MARQUES]
 
   return (
@@ -17,8 +17,8 @@ export default function MarqueeMarques() {
         {doubled.map((marque, i) => (
           <Link
             key={`${marque}-${i}`}
-            href={`/marque/${marque.toLowerCase()}`}
-            className="shrink-0 flex items-center justify-center bg-white border border-[#E2E8F0] rounded-xl px-5 py-3 text-sm font-medium text-[#64748B] hover:text-[#0F172A] hover:border-[#F97316]/40 hover:shadow-sm transition-all whitespace-nowrap"
+            href={`/marke/${marque.toLowerCase()}`}
+            className="shrink-0 flex items-center justify-center bg-white border border-[#E2E8F0] rounded-xl px-5 py-3 text-sm font-medium text-[#64748B] hover:text-[#003087] hover:border-[#0052CC]/40 hover:shadow-sm transition-all whitespace-nowrap"
           >
             {marque}
           </Link>

@@ -54,12 +54,12 @@ export default async function KontaktPage({ searchParams }: Props) {
               { icon: MessageSquare, titel: 'Antwort', wert: 'Innerhalb 12 Std.' },
             ].map(({ icon: Icon, titel, wert }) => (
               <div key={titel} className="flex items-start gap-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-4">
-                <div className="w-9 h-9 rounded-xl bg-[#F97316]/10 flex items-center justify-center shrink-0">
-                  <Icon size={16} className="text-[#F97316]" />
+                <div className="w-9 h-9 rounded-xl bg-[#0052CC]/10 flex items-center justify-center shrink-0">
+                  <Icon size={16} className="text-[#0052CC]" />
                 </div>
                 <div>
                   <p className="text-xs text-[#64748B] mb-0.5">{titel}</p>
-                  <p className="font-semibold text-[#0F172A] text-sm">{wert}</p>
+                  <p className="font-semibold text-[#003087] text-sm">{wert}</p>
                 </div>
               </div>
             ))}
@@ -70,9 +70,9 @@ export default async function KontaktPage({ searchParams }: Props) {
             {sent === '1' ? (
               <div className="flex flex-col items-center justify-center py-16 text-center">
                 <CheckCircle size={48} className="text-green-500 mb-4" />
-                <p className="font-heading text-[#0F172A] text-xl font-semibold mb-1">Nachricht gesendet!</p>
+                <p className="font-heading text-[#003087] text-xl font-semibold mb-1">Nachricht gesendet!</p>
                 <p className="text-[#64748B] text-sm">Wir antworten innerhalb von 24 Stunden.</p>
-                <a href="/contact" className="mt-6 text-sm text-[#F97316] font-semibold hover:underline">Weitere Nachricht senden</a>
+                <a href="/contact" className="mt-6 text-sm text-[#0052CC] font-semibold hover:underline">Weitere Nachricht senden</a>
               </div>
             ) : (
               <form action={sendContact} className="space-y-4">
@@ -80,30 +80,30 @@ export default async function KontaktPage({ searchParams }: Props) {
                   <div>
                     <label className="block text-xs font-semibold text-[#1E293B] uppercase tracking-wide mb-1.5">Name</label>
                     <input type="text" name="nom" required
-                      className="w-full border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm text-[#1E293B] placeholder:text-[#64748B] focus:outline-none focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316]/20 transition-colors"
+                      className="w-full border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm text-[#1E293B] placeholder:text-[#64748B] focus:outline-none focus:border-[#0052CC] focus:ring-1 focus:ring-[#0052CC]/20 transition-colors"
                       placeholder="Ihr Name" />
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-[#1E293B] uppercase tracking-wide mb-1.5">E-Mail</label>
                     <input type="email" name="email" required
-                      className="w-full border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm text-[#1E293B] placeholder:text-[#64748B] focus:outline-none focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316]/20 transition-colors"
+                      className="w-full border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm text-[#1E293B] placeholder:text-[#64748B] focus:outline-none focus:border-[#0052CC] focus:ring-1 focus:ring-[#0052CC]/20 transition-colors"
                       placeholder="ihre@email.ch" />
                   </div>
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-[#1E293B] uppercase tracking-wide mb-1.5">Betreff</label>
                   <input type="text" name="sujet" required
-                    className="w-full border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm text-[#1E293B] placeholder:text-[#64748B] focus:outline-none focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316]/20 transition-colors"
+                    className="w-full border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm text-[#1E293B] placeholder:text-[#64748B] focus:outline-none focus:border-[#0052CC] focus:ring-1 focus:ring-[#0052CC]/20 transition-colors"
                     placeholder="Betreff Ihrer Nachricht" />
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-[#1E293B] uppercase tracking-wide mb-1.5">Nachricht</label>
                   <textarea name="message" rows={5} required
-                    className="w-full border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm text-[#1E293B] placeholder:text-[#64748B] focus:outline-none focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316]/20 transition-colors resize-none"
+                    className="w-full border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm text-[#1E293B] placeholder:text-[#64748B] focus:outline-none focus:border-[#0052CC] focus:ring-1 focus:ring-[#0052CC]/20 transition-colors resize-none"
                     placeholder="Beschreiben Sie Ihr Anliegen..." />
                 </div>
                 <button type="submit"
-                  className="inline-flex items-center gap-2 bg-[#F97316] hover:bg-[#EA6C0A] text-white font-semibold px-6 py-3 rounded-xl transition-colors text-sm">
+                  className="inline-flex items-center gap-2 bg-[#0052CC] hover:bg-[#003B9C] text-white font-semibold px-6 py-3 rounded-xl transition-colors text-sm">
                   <Send size={14} />
                   Nachricht senden
                 </button>

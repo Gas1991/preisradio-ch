@@ -6,13 +6,13 @@ interface PageHeroProps {
 
 export default function PageHero({ surtitre, titre, sousTitre }: PageHeroProps) {
   return (
-    <section className="bg-[#0F172A] py-12 px-4 relative overflow-hidden">
-      {/* Halo subtil */}
-      <div className="absolute -top-20 right-0 w-72 h-72 bg-[#F97316] rounded-full blur-[100px] opacity-10 pointer-events-none" />
+    <section className="bg-[#003087] py-12 px-4 relative overflow-hidden">
+      {/* Subtiler Halo */}
+      <div className="absolute -top-20 right-0 w-72 h-72 bg-[#0052CC] rounded-full blur-[100px] opacity-10 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative">
         {surtitre && (
-          <p className="text-[#F97316] text-xs font-semibold uppercase tracking-widest mb-2">
+          <p className="text-[#0052CC] text-xs font-semibold uppercase tracking-widest mb-2">
             {surtitre}
           </p>
         )}

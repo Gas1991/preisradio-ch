@@ -1,22 +1,22 @@
 import Link from 'next/link'
 
 const PILLS = [
-  { href: '/categories/smartphones',           label: 'Smartphones',    icon: '📱' },
-  { href: '/categories/ordinateurs-portables', label: 'Laptops',        icon: '💻' },
-  { href: '/categories/tablettes',             label: 'Tablettes',      icon: '📟' },
-  { href: '/categories/audio',                 label: 'Audio',          icon: '🎧' },
-  { href: '/categories/gaming',                label: 'Gaming',         icon: '🎮' },
-  { href: '/categories/electromenager',        label: 'Électroménager', icon: '🏠' },
-  { href: '/categories/photo',                 label: 'Photo & Vidéo',  icon: '📷' },
-  { href: '/categories/imprimantes',           label: 'Imprimantes',    icon: '🖨️' },
-  { href: '/categories/moniteurs',             label: 'Moniteurs',      icon: '🖥️' },
-  { href: '/categories',                       label: 'Tout voir',      icon: '→'  },
+  { href: '/kategorien/smartphones',           label: 'Smartphones',    icon: '📱' },
+  { href: '/kategorien/ordinateurs-portables', label: 'Laptops',        icon: '💻' },
+  { href: '/kategorien/tablettes',             label: 'Tablets',        icon: '📟' },
+  { href: '/kategorien/audio',                 label: 'Audio',          icon: '🎧' },
+  { href: '/kategorien/gaming',                label: 'Gaming',         icon: '🎮' },
+  { href: '/kategorien/electromenager',        label: 'Haushaltsgeräte', icon: '🏠' },
+  { href: '/kategorien/photo',                 label: 'Foto & Video',   icon: '📷' },
+  { href: '/kategorien/imprimantes',           label: 'Drucker',        icon: '🖨️' },
+  { href: '/kategorien/moniteurs',             label: 'Monitore',       icon: '🖥️' },
+  { href: '/kategorien',                       label: 'Alle anzeigen',  icon: '→'  },
 ]
 
 export default function CategoriesPills() {
   return (
     <nav
-      aria-label="Catégories"
+      aria-label="Kategorien"
       className="bg-white border-b border-[#E2E8F0]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -26,7 +26,7 @@ export default function CategoriesPills() {
               <Link
                 key={href}
                 href={href}
-                className="flex items-center gap-1.5 whitespace-nowrap px-3 py-1.5 rounded-full text-xs font-medium text-[#475569] border border-transparent hover:border-[#F97316]/40 hover:text-[#F97316] hover:bg-orange-50 transition-all duration-150"
+                className="flex items-center gap-1.5 whitespace-nowrap px-3 py-1.5 rounded-full text-xs font-medium text-[#475569] border border-transparent hover:border-[#0052CC]/40 hover:text-[#0052CC] hover:bg-blue-50 transition-all duration-150"
               >
                 <span className="text-sm leading-none">{icon}</span>
                 {label}

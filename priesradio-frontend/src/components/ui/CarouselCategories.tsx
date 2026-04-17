@@ -7,43 +7,43 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const CATEGORIES = [
   {
-    href: '/categories/telephonie/smartphone?tri=prix_desc',
-    label: 'Téléphonie',
+    href: '/kategorien/telephonie/smartphone?tri=prix_desc',
+    label: 'Telefonie',
     img: '/banners/cat-smartphones.webp',
   },
   {
-    href: '/categories/informatique',
-    label: 'Informatique',
+    href: '/kategorien/informatique',
+    label: 'Informatik',
     img: '/banners/cat-laptops.webp',
   },
   {
-    href: '/categories/gaming',
+    href: '/kategorien/gaming',
     label: 'Gaming',
     img: '/banners/cat-gaming.webp',
   },
   {
-    href: '/categories/tv-et-son',
-    label: 'TV & Son',
+    href: '/kategorien/tv-et-son',
+    label: 'TV & Audio',
     img: '/banners/cat-audio.webp',
   },
   {
-    href: '/categories/electromenager',
-    label: 'Électroménager',
+    href: '/kategorien/electromenager',
+    label: 'Haushaltsgeräte',
     img: '/banners/cat-electromenager.webp',
   },
   {
-    href: '/categories/photo-et-video',
-    label: 'Photo & Vidéo',
+    href: '/kategorien/photo-et-video',
+    label: 'Foto & Video',
     img: '/banners/cat-photo.webp',
   },
   {
-    href: '/categories/surveillance',
-    label: 'Surveillance',
+    href: '/kategorien/surveillance',
+    label: 'Überwachung',
     img: '/banners/cat-moniteurs.webp',
   },
   {
-    href: '/categories/energie',
-    label: 'Énergie',
+    href: '/kategorien/energie',
+    label: 'Energie',
     img: '/banners/cat-tablettes.webp',
   },
 ]
@@ -71,16 +71,16 @@ export default function CarouselCategories() {
   return (
     <div className="relative group/carousel">
 
-      {/* Flèche gauche — desktop uniquement */}
+      {/* Pfeil links — nur Desktop */}
       <button
         onClick={() => scrollRef.current?.scrollBy({ left: -500, behavior: 'smooth' })}
-        aria-label="Précédent"
-        className={`hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-9 h-9 items-center justify-center rounded-full bg-white border border-[#E2E8F0] shadow-md hover:border-[#F97316] hover:text-[#F97316] transition-all duration-150 ${canLeft ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        aria-label="Vorherige"
+        className={`hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-9 h-9 items-center justify-center rounded-full bg-white border border-[#E2E8F0] shadow-md hover:border-[#0052CC] hover:text-[#0052CC] transition-all duration-150 ${canLeft ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
       >
         <ChevronLeft size={18} />
       </button>
 
-      {/* Piste scrollable — mobile + desktop */}
+      {/* Scrollbare Spur — mobile + desktop */}
       <div
         ref={scrollRef}
         className="overflow-x-auto -mx-4 sm:-mx-0 px-4 sm:px-0 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
@@ -102,21 +102,21 @@ export default function CarouselCategories() {
                 />
               </div>
               <div className="bg-white px-3 py-2.5 flex items-center justify-between">
-                <span className="text-[#1E293B] text-xs sm:text-[13px] font-semibold group-hover:text-[#F97316] transition-colors leading-tight">
+                <span className="text-[#1E293B] text-xs sm:text-[13px] font-semibold group-hover:text-[#0052CC] transition-colors leading-tight">
                   {label}
                 </span>
-                <span className="text-[#CBD5E1] group-hover:text-[#F97316] transition-colors text-xs">›</span>
+                <span className="text-[#CBD5E1] group-hover:text-[#0052CC] transition-colors text-xs">›</span>
               </div>
             </Link>
           ))}
         </div>
       </div>
 
-      {/* Flèche droite — desktop uniquement */}
+      {/* Pfeil rechts — nur Desktop */}
       <button
         onClick={() => scrollRef.current?.scrollBy({ left: 500, behavior: 'smooth' })}
-        aria-label="Suivant"
-        className={`hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-9 h-9 items-center justify-center rounded-full bg-white border border-[#E2E8F0] shadow-md hover:border-[#F97316] hover:text-[#F97316] transition-all duration-150 ${canRight ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        aria-label="Nächste"
+        className={`hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-9 h-9 items-center justify-center rounded-full bg-white border border-[#E2E8F0] shadow-md hover:border-[#0052CC] hover:text-[#0052CC] transition-all duration-150 ${canRight ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
       >
         <ChevronRight size={18} />
       </button>

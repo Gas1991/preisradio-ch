@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
-/* ─── Design tokens Toprix ─── */
+/* ─── Design tokens Priesradio (Swiss) ─── */
 @theme inline {
-  --color-brand-primary:      #0F172A;
-  --color-brand-accent:       #F97316;
-  --color-brand-accent-hover: #EA6C0A;
+  --color-brand-primary:      #003087;
+  --color-brand-accent:       #0052CC;
+  --color-brand-accent-hover: #003B9C;
   --color-brand-muted:        #F8FAFC;
   --color-brand-surface:      #FFFFFF;
   --color-brand-text:         #1E293B;
@@ -33,7 +33,7 @@ h1,h2,h3,h4,h5,h6 {
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.15;
-  color: #0F172A;
+  color: #003087;
 }
 
 .font-heading {
@@ -48,7 +48,7 @@ h1,h2,h3,h4,h5,h6 {
   left: 0;
   width: 0;
   height: 2px;
-  background: #F97316;
+  background: #0052CC;
   transition: width 0.2s ease;
 }
 .nav-link:hover::after { width: 100%; }
@@ -70,7 +70,7 @@ h1,h2,h3,h4,h5,h6 {
   animation-play-state: paused;
 }
 
-/* ─── Empêcher AdSense auto-ads de bloquer la grille produits ─── */
+/* ─── AdSense auto-ads blockieren ─── */
 .products-grid-zone {
   position: relative;
   z-index: 1;

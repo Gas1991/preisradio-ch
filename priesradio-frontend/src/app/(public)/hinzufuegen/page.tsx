@@ -31,13 +31,13 @@ export default function HinzufuegenPage() {
           {/* Vorteile */}
           <div className="lg:col-span-2 space-y-6">
             <div>
-              <p className="text-[#F97316] text-xs font-semibold uppercase tracking-widest mb-2">Warum mitmachen?</p>
-              <h2 className="font-heading text-[#0F172A] text-xl font-bold">100 % kostenlose Referenzierung</h2>
+              <p className="text-[#0052CC] text-xs font-semibold uppercase tracking-widest mb-2">Warum mitmachen?</p>
+              <h2 className="font-heading text-[#003087] text-xl font-bold">100 % kostenlose Referenzierung</h2>
             </div>
             <ul className="space-y-3">
               {VORTEILE.map((v) => (
                 <li key={v} className="flex items-start gap-3 text-sm text-[#1E293B]">
-                  <CheckCircle2 size={16} className="text-[#F97316] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={16} className="text-[#0052CC] shrink-0 mt-0.5" />
                   {v}
                 </li>
               ))}
@@ -45,16 +45,16 @@ export default function HinzufuegenPage() {
 
             <div className="border-t border-[#E2E8F0] pt-6 space-y-3">
               <div className="flex items-start gap-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-4">
-                <Store size={18} className="text-[#F97316] shrink-0 mt-0.5" />
+                <Store size={18} className="text-[#0052CC] shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-[#0F172A] text-sm">Shop</p>
+                  <p className="font-semibold text-[#003087] text-sm">Shop</p>
                   <p className="text-xs text-[#64748B]">Gesamten Shop referenzieren</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-4">
-                <Package size={18} className="text-[#F97316] shrink-0 mt-0.5" />
+                <Package size={18} className="text-[#0052CC] shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-[#0F172A] text-sm">Fehlendes Produkt</p>
+                  <p className="font-semibold text-[#003087] text-sm">Fehlendes Produkt</p>
                   <p className="text-xs text-[#64748B]">Ein fehlendes Produkt im Katalog melden</p>
                 </div>
               </div>
@@ -74,8 +74,8 @@ export default function HinzufuegenPage() {
                 ].map(({ val, label, desc }) => (
                   <label key={val} className="cursor-pointer">
                     <input type="radio" name="type" value={val} className="peer sr-only" defaultChecked={val === 'boutique'} />
-                    <div className="border-2 border-[#E2E8F0] peer-checked:border-[#F97316] peer-checked:bg-[#F97316]/5 rounded-xl p-4 transition-all">
-                      <p className="font-semibold text-[#0F172A] text-sm">{label}</p>
+                    <div className="border-2 border-[#E2E8F0] peer-checked:border-[#0052CC] peer-checked:bg-[#0052CC]/5 rounded-xl p-4 transition-all">
+                      <p className="font-semibold text-[#003087] text-sm">{label}</p>
                       <p className="text-xs text-[#64748B] mt-0.5">{desc}</p>
                     </div>
                   </label>
@@ -89,7 +89,7 @@ export default function HinzufuegenPage() {
                 <label className="block text-xs font-semibold text-[#1E293B] uppercase tracking-wide mb-1.5">Shop-Name</label>
                 <input
                   type="text" name="boutique_nom"
-                  className="w-full border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm text-[#1E293B] placeholder:text-[#64748B] focus:outline-none focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316]/20 transition-colors"
+                  className="w-full border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm text-[#1E293B] placeholder:text-[#64748B] focus:outline-none focus:border-[#0052CC] focus:ring-1 focus:ring-[#0052CC]/20 transition-colors"
                   placeholder="z.B. TechStore.ch"
                 />
               </div>
@@ -97,7 +97,7 @@ export default function HinzufuegenPage() {
                 <label className="block text-xs font-semibold text-[#1E293B] uppercase tracking-wide mb-1.5">Website</label>
                 <input
                   type="url" name="site_web"
-                  className="w-full border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm text-[#1E293B] placeholder:text-[#64748B] focus:outline-none focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316]/20 transition-colors"
+                  className="w-full border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm text-[#1E293B] placeholder:text-[#64748B] focus:outline-none focus:border-[#0052CC] focus:ring-1 focus:ring-[#0052CC]/20 transition-colors"
                   placeholder="https://..."
                 />
               </div>
@@ -109,7 +109,7 @@ export default function HinzufuegenPage() {
                 <label className="block text-xs font-semibold text-[#1E293B] uppercase tracking-wide mb-1.5">Kontaktname</label>
                 <input
                   type="text" name="contact"
-                  className="w-full border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm text-[#1E293B] placeholder:text-[#64748B] focus:outline-none focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316]/20 transition-colors"
+                  className="w-full border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm text-[#1E293B] placeholder:text-[#64748B] focus:outline-none focus:border-[#0052CC] focus:ring-1 focus:ring-[#0052CC]/20 transition-colors"
                   placeholder="Ihr Name"
                 />
               </div>
@@ -117,7 +117,7 @@ export default function HinzufuegenPage() {
                 <label className="block text-xs font-semibold text-[#1E293B] uppercase tracking-wide mb-1.5">E-Mail</label>
                 <input
                   type="email" name="email"
-                  className="w-full border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm text-[#1E293B] placeholder:text-[#64748B] focus:outline-none focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316]/20 transition-colors"
+                  className="w-full border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm text-[#1E293B] placeholder:text-[#64748B] focus:outline-none focus:border-[#0052CC] focus:ring-1 focus:ring-[#0052CC]/20 transition-colors"
                   placeholder="ihre@email.ch"
                 />
               </div>
@@ -127,14 +127,14 @@ export default function HinzufuegenPage() {
               <label className="block text-xs font-semibold text-[#1E293B] uppercase tracking-wide mb-1.5">Telefon (optional)</label>
               <input
                 type="tel" name="telephone"
-                className="w-full border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm text-[#1E293B] placeholder:text-[#64748B] focus:outline-none focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316]/20 transition-colors"
+                className="w-full border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm text-[#1E293B] placeholder:text-[#64748B] focus:outline-none focus:border-[#0052CC] focus:ring-1 focus:ring-[#0052CC]/20 transition-colors"
                 placeholder="+41 XX XXX XX XX"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 bg-[#F97316] hover:bg-[#EA6C0A] text-white font-semibold py-3.5 rounded-xl transition-colors text-sm"
+              className="w-full flex items-center justify-center gap-2 bg-[#0052CC] hover:bg-[#003B9C] text-white font-semibold py-3.5 rounded-xl transition-colors text-sm"
             >
               Anfrage senden
             </button>

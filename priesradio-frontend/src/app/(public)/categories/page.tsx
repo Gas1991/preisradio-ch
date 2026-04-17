@@ -6,28 +6,28 @@ import CategoriesClient from '@/components/categories/CategoriesClient'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Catégories de produits high-tech',
-  description: 'Comparez les prix par catégorie : smartphones, laptops, écrans, et plus.',
-  alternates: { canonical: '/categories' },
+  title: 'Kategorien | Priesradio',
+  description: 'Vergleichen Sie die Preise nach Kategorie: Smartphones, Laptops, TV und mehr.',
+  alternates: { canonical: '/kategorien' },
 }
 
 export default async function CategoriesPage() {
   let categories = null
-  let erreur = null
+  let fehler = null
 
-  try { categories = await getCategories() } catch { erreur = 'Impossible de charger les catégories.' }
+  try { categories = await getCategories() } catch { fehler = 'Kategorien konnten nicht geladen werden.' }
 
   return (
     <div>
       <PageHero
-        surtitre="Explorer"
-        titre="Toutes les catégories"
-        sousTitre="Comparez les meilleurs produits high-tech par catégorie."
+        surtitre="Entdecken"
+        titre="Alle Kategorien"
+        sousTitre="Vergleichen Sie die besten High-Tech-Produkte nach Kategorie."
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {erreur && (
-          <div className="bg-red-50 border border-red-100 text-red-600 rounded-xl px-4 py-3 text-sm mb-6">{erreur}</div>
+        {fehler && (
+          <div className="bg-red-50 border border-red-100 text-red-600 rounded-xl px-4 py-3 text-sm mb-6">{fehler}</div>
         )}
 
         {categories && (

@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { X, ChevronDown, SlidersHorizontal, Package, ArrowUpDown } from 'lucide-react'
 
-// ─── Types ────────────────────────────────────────────────────────────────────
+// ─── Typen ────────────────────────────────────────────────────────────────────
 
 export interface FilterState {
   boutique: string
@@ -37,7 +37,7 @@ export interface FilterSidebarProps {
   totalResults?: number
 }
 
-// ─── Constantes ───────────────────────────────────────────────────────────────
+// ─── Konstanten ───────────────────────────────────────────────────────────────
 
 const BOUTIQUES = [
   { id: 'digitec',       label: 'Digitec',       dot: 'bg-blue-500' },
@@ -58,7 +58,7 @@ export const PARENT_CATEGORIES = [
   { slug: 'netzwerk',         nom: 'Netzwerk' },
 ]
 
-// ─── Section accordéon ────────────────────────────────────────────────────────
+// ─── Akkordeon-Abschnitt ──────────────────────────────────────────────────────
 
 function Section({ title, children, defaultOpen = true }: {
   title: string
@@ -81,7 +81,7 @@ function Section({ title, children, defaultOpen = true }: {
   )
 }
 
-// ─── Composant principal ──────────────────────────────────────────────────────
+// ─── Hauptkomponente ──────────────────────────────────────────────────────────
 
 export default function FilterSidebar({
   filters,
@@ -111,21 +111,21 @@ export default function FilterSidebar({
 
   return (
     <aside className={[
-      /* ── Mobile/tablet : bottom sheet ── */
+      /* ── Mobile/Tablet: Bottom Sheet ── */
       'fixed bottom-0 left-0 right-0 z-40 flex flex-col',
       'max-h-[88vh] bg-white rounded-t-[28px]',
       'transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]',
       isOpen
         ? 'translate-y-0 shadow-[0_-8px_48px_rgba(0,0,0,0.18)]'
         : 'translate-y-full',
-      /* ── Desktop lg+ : sidebar statique sticky ── */
+      /* ── Desktop lg+: statische Sticky-Sidebar ── */
       'lg:static lg:translate-y-0 lg:shadow-none lg:z-auto lg:flex lg:flex-col',
       'lg:w-56 xl:w-60 lg:max-h-[calc(100vh-5rem)] lg:sticky lg:top-20',
       'lg:rounded-2xl lg:border lg:border-[#E2E8F0] lg:overflow-hidden',
     ].join(' ')}
     >
 
-      {/* ── Drag handle – mobile uniquement ── */}
+      {/* ── Drag Handle – nur mobile ── */}
       <div className="lg:hidden flex justify-center pt-3 pb-0.5 flex-shrink-0">
         <div className="w-10 h-1 bg-[#CBD5E1] rounded-full" />
       </div>
@@ -133,10 +133,10 @@ export default function FilterSidebar({
       {/* ── Header ── */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-[#F1F5F9] flex-shrink-0">
         <div className="flex items-center gap-2">
-          <SlidersHorizontal size={14} className="text-[#F97316]" />
-          <span className="font-heading font-bold text-[#0F172A] text-sm">Filter</span>
+          <SlidersHorizontal size={14} className="text-[#0052CC]" />
+          <span className="font-heading font-bold text-[#003087] text-sm">Filter</span>
           {nbActifs > 0 && (
-            <span className="bg-[#F97316] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+            <span className="bg-[#0052CC] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
               {nbActifs}
             </span>
           )}
@@ -144,7 +144,7 @@ export default function FilterSidebar({
         <div className="flex items-center gap-3">
           {nbActifs > 0 && (
             <button type="button" onClick={handleClear}
-              className="text-xs text-[#F97316] hover:underline font-semibold">
+              className="text-xs text-[#0052CC] hover:underline font-semibold">
               Alle löschen
             </button>
           )}
@@ -159,10 +159,10 @@ export default function FilterSidebar({
         </div>
       </div>
 
-      {/* ── Contenu scrollable ── */}
+      {/* ── Scrollbarer Inhalt ── */}
       <div className="flex-1 overflow-y-auto overscroll-contain">
 
-        {/* Boutique */}
+        {/* Shop */}
         <Section title="Shop">
           <div className="flex flex-col gap-1.5">
             <RadioItem
@@ -170,7 +170,7 @@ export default function FilterSidebar({
               checked={!filters.boutique}
               name="boutique" value=""
               onChange={() => onChange({ ...filters, boutique: '' })}
-              dot="bg-[#0F172A]"
+              dot="bg-[#003087]"
             />
             {BOUTIQUES.map((b) => (
               <RadioItem
@@ -185,7 +185,7 @@ export default function FilterSidebar({
           </div>
         </Section>
 
-        {/* Catégorie */}
+        {/* Kategorie */}
         {!hideCategorie && (
           <Section title="Kategorie">
             <div className="flex flex-col gap-1">
@@ -196,14 +196,14 @@ export default function FilterSidebar({
                   checked={filters.categorie === cat.slug}
                   name="categorie" value={cat.slug}
                   onChange={() => onChange({ ...filters, categorie: filters.categorie === cat.slug ? '' : cat.slug })}
-                  dot="bg-[#F97316]"
+                  dot="bg-[#0052CC]"
                 />
               ))}
             </div>
           </Section>
         )}
 
-        {/* Marque */}
+        {/* Marke */}
         {!hideBrand && availableBrands.length > 0 && (
           <Section title="Marke">
             {availableBrands.length > 6 && (
@@ -212,7 +212,7 @@ export default function FilterSidebar({
                 value={brandSearch}
                 onChange={(e) => setBrandSearch(e.target.value)}
                 placeholder="Marke suchen…"
-                className="w-full border border-[#E2E8F0] rounded-lg px-3 py-1.5 text-xs text-[#1E293B] outline-none focus:border-[#F97316] bg-white mb-3 transition-colors"
+                className="w-full border border-[#E2E8F0] rounded-lg px-3 py-1.5 text-xs text-[#1E293B] outline-none focus:border-[#0052CC] bg-white mb-3 transition-colors"
               />
             )}
             <div className="flex flex-col gap-1 max-h-48 overflow-y-auto pr-1">
@@ -239,20 +239,20 @@ export default function FilterSidebar({
           </Section>
         )}
 
-        {/* Prix */}
+        {/* Preis */}
         <Section title="Preis (CHF)">
           <div className="flex items-center gap-2">
             <input type="number" value={filters.prix_min} min="0" placeholder="Min"
               onChange={(e) => onChange({ ...filters, prix_min: e.target.value })}
-              className="flex-1 border border-[#E2E8F0] rounded-lg px-3 py-2 text-sm text-[#1E293B] outline-none focus:border-[#F97316] bg-white transition-colors min-w-0" />
+              className="flex-1 border border-[#E2E8F0] rounded-lg px-3 py-2 text-sm text-[#1E293B] outline-none focus:border-[#0052CC] bg-white transition-colors min-w-0" />
             <span className="text-slate-400 text-sm shrink-0">—</span>
             <input type="number" value={filters.prix_max} min="0" placeholder="Max"
               onChange={(e) => onChange({ ...filters, prix_max: e.target.value })}
-              className="flex-1 border border-[#E2E8F0] rounded-lg px-3 py-2 text-sm text-[#1E293B] outline-none focus:border-[#F97316] bg-white transition-colors min-w-0" />
+              className="flex-1 border border-[#E2E8F0] rounded-lg px-3 py-2 text-sm text-[#1E293B] outline-none focus:border-[#0052CC] bg-white transition-colors min-w-0" />
           </div>
         </Section>
 
-        {/* Disponibilité */}
+        {/* Verfügbarkeit */}
         <Section title="Verfügbarkeit">
           <div className="flex flex-col gap-3">
             <CheckItem
@@ -265,7 +265,7 @@ export default function FilterSidebar({
           </div>
         </Section>
 
-        {/* Tri */}
+        {/* Sortieren */}
         <Section title="Sortieren" defaultOpen={false}>
           <div className="flex flex-col gap-1.5">
             {[
@@ -280,7 +280,7 @@ export default function FilterSidebar({
                 checked={filters.tri === val}
                 name="tri" value={val}
                 onChange={() => onChange({ ...filters, tri: val })}
-                dot="bg-[#F97316]"
+                dot="bg-[#0052CC]"
               />
             ))}
           </div>
@@ -288,12 +288,12 @@ export default function FilterSidebar({
 
       </div>
 
-      {/* ── Footer CTA – mobile uniquement ── */}
+      {/* ── Footer CTA – nur mobile ── */}
       <div className="lg:hidden flex-shrink-0 px-4 py-4 bg-white border-t border-[#F1F5F9]">
         <button
           type="button"
           onClick={onClose}
-          className="w-full bg-[#F97316] hover:bg-[#EA6C0A] active:scale-[0.98] text-white font-bold py-3.5 rounded-2xl text-sm transition-all"
+          className="w-full bg-[#0052CC] hover:bg-[#003B9C] active:scale-[0.98] text-white font-bold py-3.5 rounded-2xl text-sm transition-all"
         >
           {applyLabel}
         </button>
@@ -303,7 +303,7 @@ export default function FilterSidebar({
   )
 }
 
-// ─── Micro-composants ─────────────────────────────────────────────────────────
+// ─── Unterkomponenten ─────────────────────────────────────────────────────────
 
 function RadioItem({ label, checked, name, value, onChange, dot, prefixIcon }: {
   label: string
@@ -322,7 +322,7 @@ function RadioItem({ label, checked, name, value, onChange, dot, prefixIcon }: {
         {checked && <span className="block w-full h-full rounded-full bg-white scale-[0.35]" />}
       </span>
       <span className={`text-sm flex items-center gap-1 transition-colors leading-tight ${
-        checked ? 'text-[#0F172A] font-semibold' : 'text-[#64748B] group-hover:text-[#1E293B]'
+        checked ? 'text-[#003087] font-semibold' : 'text-[#64748B] group-hover:text-[#1E293B]'
       }`}>
         {prefixIcon}
         {label}
@@ -332,15 +332,15 @@ function RadioItem({ label, checked, name, value, onChange, dot, prefixIcon }: {
   )
 }
 
-function CheckItem({ label, checked, onChange, icon, color = 'orange' }: {
+function CheckItem({ label, checked, onChange, icon, color = 'blue' }: {
   label: string
   checked: boolean
   onChange: ((v: boolean) => void) | (() => void)
   icon?: React.ReactNode
-  color?: 'orange' | 'green'
+  color?: 'blue' | 'green'
 }) {
-  const activeColor = color === 'green' ? 'bg-[#22C55E] border-[#22C55E]' : 'bg-[#F97316] border-[#F97316]'
-  const hoverBorder = color === 'green' ? 'group-hover:border-[#22C55E]/50' : 'group-hover:border-[#F97316]/50'
+  const activeColor = color === 'green' ? 'bg-[#22C55E] border-[#22C55E]' : 'bg-[#0052CC] border-[#0052CC]'
+  const hoverBorder = color === 'green' ? 'group-hover:border-[#22C55E]/50' : 'group-hover:border-[#0052CC]/50'
   return (
     <label className="flex items-center gap-2.5 cursor-pointer group py-0.5">
       <span className={`w-4 h-4 rounded border-2 flex-shrink-0 transition-colors flex items-center justify-center ${
@@ -353,7 +353,7 @@ function CheckItem({ label, checked, onChange, icon, color = 'orange' }: {
         )}
       </span>
       <span className={`text-sm font-medium flex items-center gap-1.5 transition-colors ${
-        checked ? 'text-[#0F172A]' : 'text-[#1E293B]'
+        checked ? 'text-[#003087]' : 'text-[#1E293B]'
       }`}>
         {icon}
         {label}

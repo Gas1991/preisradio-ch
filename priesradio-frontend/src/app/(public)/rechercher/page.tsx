@@ -6,8 +6,8 @@ import FilteredProductsSection from '@/components/product/FilteredProductsSectio
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Rechercher',
-  description: 'Recherchez et comparez les prix des produits high-tech en Tunisie.',
+  title: 'Suchen | Priesradio',
+  description: 'Suchen und vergleichen Sie die Preise von High-Tech-Produkten in der Schweiz.',
   robots: { index: false, follow: true },
 }
 
@@ -43,7 +43,7 @@ export default async function RechercherPage({ searchParams }: Props) {
   const hasSearch = !!(q || categorie || marque || prix_min || prix_max || boutique || en_stock === '1')
 
   let produits = null
-  let erreur = null
+  let fehler = null
 
   if (hasSearch) {
     try {
@@ -59,16 +59,16 @@ export default async function RechercherPage({ searchParams }: Props) {
         tri: tri || undefined,
       })
     } catch {
-      erreur = 'Impossible de charger les résultats.'
+      fehler = 'Ergebnisse konnten nicht geladen werden.'
     }
   }
 
   return (
     <div>
-      {/* Hero recherche */}
-      <section className="bg-[#0F172A] py-10 px-4">
+      {/* Hero Suche */}
+      <section className="bg-[#003087] py-10 px-4">
         <div className="max-w-3xl mx-auto">
-          <p className="text-[#F97316] text-xs font-semibold uppercase tracking-widest mb-3">Comparateur</p>
+          <p className="text-[#5B9BD5] text-xs font-semibold uppercase tracking-widest mb-3">Preisvergleich</p>
           <form method="get" className="flex items-center bg-white rounded-xl overflow-hidden shadow-2xl shadow-black/40">
             <div className="flex items-center gap-3 flex-1 px-5">
               <Search size={18} className="text-slate-400 shrink-0" />
@@ -76,16 +76,16 @@ export default async function RechercherPage({ searchParams }: Props) {
                 type="text"
                 name="q"
                 defaultValue={q}
-                placeholder="Ex : PC portable, iPhone, casque..."
+                placeholder="z.B. iPhone 16, Galaxy S25, MacBook Air..."
                 autoFocus
                 className="w-full py-4 text-sm text-slate-800 placeholder:text-slate-400 outline-none bg-transparent"
               />
             </div>
             <button
               type="submit"
-              className="shrink-0 bg-[#F97316] hover:bg-[#EA6C0A] text-white font-semibold text-sm px-6 py-4 transition-colors"
+              className="shrink-0 bg-[#0052CC] hover:bg-[#003B9C] text-white font-semibold text-sm px-6 py-4 transition-colors"
             >
-              Comparer
+              Vergleichen
             </button>
           </form>
         </div>
@@ -98,16 +98,16 @@ export default async function RechercherPage({ searchParams }: Props) {
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] mb-4">
               <Search size={28} className="text-slate-300" />
             </div>
-            <p className="font-heading text-[#0F172A] text-xl font-semibold mb-2">Que recherchez-vous ?</p>
-            <p className="text-[#64748B] text-sm">Entrez le nom d&apos;un produit pour comparer les prix.</p>
+            <p className="font-heading text-[#003087] text-xl font-semibold mb-2">Was suchen Sie?</p>
+            <p className="text-[#64748B] text-sm">Geben Sie einen Produktnamen ein, um die Preise zu vergleichen.</p>
           </div>
         )}
 
-        {erreur && (
-          <div className="bg-red-50 border border-red-100 text-red-600 rounded-xl px-4 py-3 text-sm mt-6">{erreur}</div>
+        {fehler && (
+          <div className="bg-red-50 border border-red-100 text-red-600 rounded-xl px-4 py-3 text-sm mt-6">{fehler}</div>
         )}
 
-        {hasSearch && !erreur && (
+        {hasSearch && !fehler && (
           <FilteredProductsSection
             initialProducts={produits?.data ?? []}
             initialMeta={produits?.meta ?? null}

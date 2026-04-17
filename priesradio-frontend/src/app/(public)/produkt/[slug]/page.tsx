@@ -138,7 +138,7 @@ export default async function ProduktDetailPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
     <div>
       {/* Breadcrumb */}
-      <section className="bg-[#0F172A] py-5 px-4">
+      <section className="bg-[#003087] py-5 px-4">
         <div className="max-w-7xl mx-auto">
           <nav className="flex items-center gap-1.5 text-xs text-slate-500">
             <Link href="/" className="hover:text-slate-300 transition-colors">Startseite</Link>
@@ -189,7 +189,7 @@ export default async function ProduktDetailPage({ params }: Props) {
 
             {/* Badges */}
             <div className="flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 bg-[#F97316]/10 text-[#F97316] text-xs font-semibold px-2.5 py-1 rounded-full">
+              <span className="inline-flex items-center gap-1.5 bg-[#0052CC]/10 text-[#0052CC] text-xs font-semibold px-2.5 py-1 rounded-full">
                 {produit.marque}
               </span>
               {produit.boutique && (
@@ -208,7 +208,7 @@ export default async function ProduktDetailPage({ params }: Props) {
             </div>
 
             {/* Titel */}
-            <h1 className="font-heading text-[#0F172A] text-2xl md:text-3xl font-bold leading-tight">
+            <h1 className="font-heading text-[#003087] text-2xl md:text-3xl font-bold leading-tight">
               {produit.nom}
             </h1>
 
@@ -227,7 +227,7 @@ export default async function ProduktDetailPage({ params }: Props) {
 
             {/* Preis */}
             {produit.prix_min && (
-              <div className="bg-[#0F172A] rounded-2xl p-5">
+              <div className="bg-[#003087] rounded-2xl p-5">
                 <p className="text-slate-400 text-xs uppercase tracking-wider mb-2">Preis</p>
                 <div className="flex items-end gap-3 flex-wrap">
                   {hasOldPrice && (
@@ -235,7 +235,7 @@ export default async function ProduktDetailPage({ params }: Props) {
                       {formatCHF(produit.prix_max!)}
                     </p>
                   )}
-                  <p className="font-heading text-[#F97316] text-4xl font-bold">
+                  <p className="font-heading text-[#5B9BD5] text-4xl font-bold">
                     {formatCHF(produit.prix_min)}
                   </p>
                 </div>
@@ -248,7 +248,7 @@ export default async function ProduktDetailPage({ params }: Props) {
                 href={produit.url_boutique}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#F97316] hover:bg-[#EA6C0A] text-white text-sm font-semibold px-5 py-3 rounded-xl transition-colors"
+                className="inline-flex items-center gap-2 bg-[#0052CC] hover:bg-[#003B9C] text-white text-sm font-semibold px-5 py-3 rounded-xl transition-colors"
               >
                 Auf {produit.boutique || 'Shop'} ansehen
                 <ExternalLink size={14} />
@@ -267,10 +267,10 @@ export default async function ProduktDetailPage({ params }: Props) {
               </div>
             )}
 
-            {/* Preisvergleich Tabelle */}
+            {/* Preisvergleich-Tabelle */}
             {produit.offres && produit.offres.length > 0 && (
               <div>
-                <h2 className="font-heading text-[#0F172A] text-base font-semibold mb-3">
+                <h2 className="font-heading text-[#003087] text-base font-semibold mb-3">
                   Angebote vergleichen
                   <span className="ml-2 text-xs font-normal text-[#64748B]">
                     ({produit.offres.length} Shop{produit.offres.length > 1 ? 's' : ''})
@@ -290,9 +290,9 @@ export default async function ProduktDetailPage({ params }: Props) {
                     return (
                       <div
                         key={offre.boutique}
-                        className={`grid grid-cols-3 items-center px-4 py-4 text-sm ${i === 0 ? 'bg-orange-50/40' : ''} ${i < produit.offres!.length - 1 ? 'border-b border-[#E2E8F0]' : ''}`}
+                        className={`grid grid-cols-3 items-center px-4 py-4 text-sm ${i === 0 ? 'bg-blue-50/40' : ''} ${i < produit.offres!.length - 1 ? 'border-b border-[#E2E8F0]' : ''}`}
                       >
-                        {/* Shop: Logo + Name + Stock */}
+                        {/* Shop: Logo + Name + Lager */}
                         <div className="flex flex-col gap-1">
                           <div className="flex items-center gap-2">
                             {logo ? (
@@ -316,11 +316,11 @@ export default async function ProduktDetailPage({ params }: Props) {
 
                         {/* Preis */}
                         <div className="text-center">
-                          <span className={`text-lg font-bold ${i === 0 ? 'text-[#F97316]' : 'text-[#1E293B]'}`}>
+                          <span className={`text-lg font-bold ${i === 0 ? 'text-[#0052CC]' : 'text-[#1E293B]'}`}>
                             {formatCHF(offre.prix)}
                           </span>
                           {i === 0 && produit.offres!.length > 1 && (
-                            <p className="text-[10px] text-[#F97316] font-medium">✓ Bester Preis</p>
+                            <p className="text-[10px] text-[#0052CC] font-medium">✓ Bester Preis</p>
                           )}
                         </div>
 
@@ -330,7 +330,7 @@ export default async function ProduktDetailPage({ params }: Props) {
                             href={offre.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-xs bg-[#F97316] hover:bg-[#EA6C0A] text-white px-3 py-1.5 rounded-lg transition-colors"
+                            className="inline-flex items-center gap-1 text-xs bg-[#0052CC] hover:bg-[#003B9C] text-white px-3 py-1.5 rounded-lg transition-colors"
                           >
                             Ansehen <ExternalLink size={10} />
                           </a>
@@ -347,7 +347,7 @@ export default async function ProduktDetailPage({ params }: Props) {
         {/* ── Ähnliche Produkte ── */}
         {aehnliche.length > 0 && (
           <div className="mt-10 pt-8 border-t border-[#E2E8F0]">
-            <h2 className="font-heading text-[#0F172A] text-lg font-semibold mb-5">
+            <h2 className="font-heading text-[#003087] text-lg font-semibold mb-5">
               Ähnliche Produkte
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">

@@ -33,7 +33,7 @@ interface FilteredProductsSectionProps {
   showQ?: string
 }
 
-// ─── Helper : URL aufbauen ohne Navigation ────────────────────────────────────
+// ─── Helper: URL bauen ohne Navigation ────────────────────────────────────────
 
 function buildUrl(filters: FilterState, page: number, fixedQ?: string): string {
   const sp = new URLSearchParams()
@@ -153,7 +153,7 @@ export default function FilteredProductsSection({
           onClick={() => setSidebarOpen(true)}
           className={`flex-1 inline-flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold transition-all ${
             nbActifs > 0
-              ? 'bg-[#F97316] text-white shadow-sm'
+              ? 'bg-[#0052CC] text-white shadow-sm'
               : 'text-[#64748B] hover:bg-white hover:text-[#1E293B] hover:shadow-sm'
           }`}
         >
@@ -186,7 +186,7 @@ export default function FilteredProductsSection({
           totalResults={meta?.total_items ?? products.length}
         />
 
-        {/* ── Mobile Overlay (bottom sheet) ── */}
+        {/* ── Mobile Overlay (Bottom Sheet) ── */}
         {sidebarOpen && (
           <div
             className="fixed inset-0 bg-black/50 z-30 lg:hidden backdrop-blur-[2px]"
@@ -201,14 +201,14 @@ export default function FilteredProductsSection({
           <div className="hidden lg:flex items-center justify-between mb-5">
             <div>
               {showQ ? (
-                <h1 className="font-heading text-[#0F172A] text-xl font-bold">
+                <h1 className="font-heading text-[#003087] text-xl font-bold">
                   {meta?.total_items != null
                     ? `${meta.total_items} Ergebnis${meta.total_items !== 1 ? 'se' : ''}${showQ ? ` für „${showQ}"` : ''}`
                     : `Ergebnisse${showQ ? ` für „${showQ}"` : ''}`}
                 </h1>
               ) : (
                 <p className="text-sm text-[#64748B]">
-                  <span className="font-semibold text-[#0F172A]">{meta?.total_items ?? products.length}</span> Produkt{(meta?.total_items ?? products.length) !== 1 ? 'e' : ''}
+                  <span className="font-semibold text-[#003087]">{meta?.total_items ?? products.length}</span> Produkt{(meta?.total_items ?? products.length) !== 1 ? 'e' : ''}
                 </p>
               )}
             </div>
@@ -218,7 +218,7 @@ export default function FilteredProductsSection({
           {/* Mobile: Ergebnisanzahl */}
           {showQ && (
             <div className="lg:hidden mb-4">
-              <h1 className="font-heading text-[#0F172A] text-lg font-bold">
+              <h1 className="font-heading text-[#003087] text-lg font-bold">
                 {meta?.total_items != null
                   ? `${meta.total_items} Ergebnis${meta.total_items !== 1 ? 'se' : ''}${showQ ? ` für „${showQ}"` : ''}`
                   : `Ergebnisse${showQ ? ` für „${showQ}"` : ''}`}
@@ -239,7 +239,7 @@ export default function FilteredProductsSection({
               {filters.categorie && (
                 <Badge
                   label={PARENT_CATEGORIES.find(c => c.slug === filters.categorie)?.nom ?? filters.categorie}
-                  className="bg-[#F97316]/10 text-[#F97316]"
+                  className="bg-[#0052CC]/10 text-[#0052CC]"
                   onRemove={() => handleFilterChange({ ...filters, categorie: '' })}
                 />
               )}
@@ -247,7 +247,7 @@ export default function FilteredProductsSection({
                 <Badge
                   key={m}
                   label={m}
-                  className="bg-[#F97316]/10 text-[#F97316]"
+                  className="bg-[#0052CC]/10 text-[#0052CC]"
                   onRemove={() => handleFilterChange({ ...filters, marques: filters.marques.filter(x => x !== m) })}
                 />
               ))}
@@ -258,7 +258,7 @@ export default function FilteredProductsSection({
                       ? `${filters.prix_min} — ${filters.prix_max} CHF`
                       : filters.prix_min ? `≥ ${filters.prix_min} CHF` : `≤ ${filters.prix_max} CHF`
                   }
-                  className="bg-[#F97316]/10 text-[#F97316]"
+                  className="bg-[#0052CC]/10 text-[#0052CC]"
                   onRemove={() => handleFilterChange({ ...filters, prix_min: '', prix_max: '' })}
                 />
               )}
@@ -274,7 +274,7 @@ export default function FilteredProductsSection({
                 <Badge
                   label={filters.tri === 'prix_asc' ? 'Preis ↑' : 'Preis ↓'}
                   icon={<ArrowUpDown size={10} />}
-                  className="bg-[#F97316]/10 text-[#F97316]"
+                  className="bg-[#0052CC]/10 text-[#0052CC]"
                   onRemove={() => handleFilterChange({ ...filters, tri: '' })}
                 />
               )}
@@ -306,7 +306,7 @@ export default function FilteredProductsSection({
                   <button
                     type="button"
                     onClick={() => handleFilterChange({ ...EMPTY_FILTERS })}
-                    className="mt-3 inline-flex items-center gap-1.5 text-sm text-[#F97316] font-semibold hover:underline"
+                    className="mt-3 inline-flex items-center gap-1.5 text-sm text-[#0052CC] font-semibold hover:underline"
                   >
                     <X size={13} /> Filter löschen
                   </button>
@@ -329,7 +329,7 @@ function SortSelect({ value, onChange }: { value: string; onChange: (v: string) 
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="text-sm text-[#1E293B] border border-[#E2E8F0] rounded-lg px-2.5 py-1.5 outline-none focus:border-[#F97316] bg-white cursor-pointer transition-colors appearance-none pr-6"
+        className="text-sm text-[#1E293B] border border-[#E2E8F0] rounded-lg px-2.5 py-1.5 outline-none focus:border-[#0052CC] bg-white cursor-pointer transition-colors appearance-none pr-6"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
           backgroundRepeat: 'no-repeat',

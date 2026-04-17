@@ -35,22 +35,22 @@ export default function CarouselProduits({ produits }: CarouselProduitsProps) {
   const scroll = (dir: 'left' | 'right') => {
     const el = scrollRef.current
     if (!el) return
-    // Avance de ~3 cartes
+    // Vorwärts ca. 3 Karten
     el.scrollBy({ left: dir === 'right' ? 700 : -700, behavior: 'smooth' })
   }
 
   return (
     <div className="relative group/carousel">
 
-      {/* ── Bouton GAUCHE ── */}
+      {/* ── Schaltfläche LINKS ── */}
       <button
         onClick={() => scroll('left')}
-        aria-label="Précédent"
+        aria-label="Vorherige"
         className={`
           absolute left-0 top-1/2 -translate-y-1/2 z-10 -translate-x-4
           w-9 h-9 bg-white border border-[#E2E8F0] rounded-full shadow-md
           flex items-center justify-center text-[#64748B]
-          hover:border-[#F97316] hover:text-[#F97316] hover:shadow-orange-100/50
+          hover:border-[#0052CC] hover:text-[#0052CC] hover:shadow-blue-100/50
           transition-all duration-200
           ${canLeft ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
         `}
@@ -58,7 +58,7 @@ export default function CarouselProduits({ produits }: CarouselProduitsProps) {
         <ChevronLeft size={16} strokeWidth={2.5} />
       </button>
 
-      {/* ── Scroll container ── */}
+      {/* ── Scroll-Container ── */}
       <div
         ref={scrollRef}
         className="overflow-x-auto -mx-4 sm:-mx-6 px-4 sm:px-6 pb-2 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
@@ -72,15 +72,15 @@ export default function CarouselProduits({ produits }: CarouselProduitsProps) {
         </div>
       </div>
 
-      {/* ── Bouton DROITE ── */}
+      {/* ── Schaltfläche RECHTS ── */}
       <button
         onClick={() => scroll('right')}
-        aria-label="Suivant"
+        aria-label="Nächste"
         className={`
           absolute right-0 top-1/2 -translate-y-1/2 z-10 translate-x-4
           w-9 h-9 bg-white border border-[#E2E8F0] rounded-full shadow-md
           flex items-center justify-center text-[#64748B]
-          hover:border-[#F97316] hover:text-[#F97316] hover:shadow-orange-100/50
+          hover:border-[#0052CC] hover:text-[#0052CC] hover:shadow-blue-100/50
           transition-all duration-200
           ${canRight ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
         `}

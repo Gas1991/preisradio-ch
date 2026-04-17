@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 const TUILES = [
   {
-    href: '/categories/smartphones',
+    href: '/kategorien/smartphones',
     label: 'Smartphones',
     icon: '📱',
     bg: 'bg-blue-50',
@@ -10,7 +10,7 @@ const TUILES = [
     shadow: 'hover:shadow-blue-100',
   },
   {
-    href: '/categories/ordinateurs-portables',
+    href: '/kategorien/ordinateurs-portables',
     label: 'Laptops',
     icon: '💻',
     bg: 'bg-slate-50',
@@ -18,15 +18,15 @@ const TUILES = [
     shadow: 'hover:shadow-slate-100',
   },
   {
-    href: '/categories/tablettes',
-    label: 'Tablettes',
+    href: '/kategorien/tablettes',
+    label: 'Tablets',
     icon: '📟',
     bg: 'bg-violet-50',
     ring: 'hover:border-violet-300',
     shadow: 'hover:shadow-violet-100',
   },
   {
-    href: '/categories/audio',
+    href: '/kategorien/audio',
     label: 'Audio',
     icon: '🎧',
     bg: 'bg-rose-50',
@@ -34,7 +34,7 @@ const TUILES = [
     shadow: 'hover:shadow-rose-100',
   },
   {
-    href: '/categories/gaming',
+    href: '/kategorien/gaming',
     label: 'Gaming',
     icon: '🎮',
     bg: 'bg-emerald-50',
@@ -42,44 +42,44 @@ const TUILES = [
     shadow: 'hover:shadow-emerald-100',
   },
   {
-    href: '/categories/electromenager',
-    label: 'Électroménager',
+    href: '/kategorien/electromenager',
+    label: 'Haushaltsgeräte',
     icon: '🏠',
     bg: 'bg-orange-50',
     ring: 'hover:border-orange-300',
     shadow: 'hover:shadow-orange-100',
   },
   {
-    href: '/categories/photo',
-    label: 'Photo & Vidéo',
+    href: '/kategorien/photo',
+    label: 'Foto & Video',
     icon: '📷',
     bg: 'bg-amber-50',
     ring: 'hover:border-amber-300',
     shadow: 'hover:shadow-amber-100',
   },
   {
-    href: '/categories/imprimantes',
-    label: 'Imprimantes',
+    href: '/kategorien/imprimantes',
+    label: 'Drucker',
     icon: '🖨️',
     bg: 'bg-cyan-50',
     ring: 'hover:border-cyan-300',
     shadow: 'hover:shadow-cyan-100',
   },
   {
-    href: '/categories/moniteurs',
-    label: 'Moniteurs',
+    href: '/kategorien/moniteurs',
+    label: 'Monitore',
     icon: '🖥️',
     bg: 'bg-indigo-50',
     ring: 'hover:border-indigo-300',
     shadow: 'hover:shadow-indigo-100',
   },
   {
-    href: '/categories',
-    label: 'Tout voir',
+    href: '/kategorien',
+    label: 'Alle anzeigen',
     icon: '→',
-    bg: 'bg-orange-50',
-    ring: 'hover:border-[#F97316]',
-    shadow: 'hover:shadow-orange-100',
+    bg: 'bg-blue-50',
+    ring: 'hover:border-[#0052CC]',
+    shadow: 'hover:shadow-blue-100',
   },
 ]
 
@@ -96,7 +96,7 @@ export default function TuilesCategoriesCarousel() {
             <span className="text-3xl sm:text-4xl group-hover:scale-110 transition-transform duration-200">
               {icon}
             </span>
-            <span className="text-[10px] sm:text-[11px] font-semibold text-[#1E293B] group-hover:text-[#F97316] text-center leading-tight transition-colors px-2 line-clamp-2">
+            <span className="text-[10px] sm:text-[11px] font-semibold text-[#1E293B] group-hover:text-[#0052CC] text-center leading-tight transition-colors px-2 line-clamp-2">
               {label}
             </span>
           </Link>

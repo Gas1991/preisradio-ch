@@ -38,9 +38,9 @@ export default function CarteProduit({ produit, className, compact }: CarteProdu
   return (
     <Link
       href={href}
-      className={`group flex flex-col bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden hover:border-[#F97316]/40 hover:shadow-lg hover:shadow-orange-100/30 transition-all${className ? ` ${className}` : ''}`}
+      className={`group flex flex-col bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden hover:border-[#0052CC]/40 hover:shadow-lg hover:shadow-blue-100/30 transition-all${className ? ` ${className}` : ''}`}
     >
-      {/* Image — aspect-ratio responsive */}
+      {/* Bild */}
       <div className={`relative w-full bg-white overflow-hidden ${compact ? 'h-28' : 'aspect-[4/3]'}`}>
         {produit.image ? (
           <Image
@@ -60,11 +60,11 @@ export default function CarteProduit({ produit, className, compact }: CarteProdu
         )}
       </div>
 
-      {/* Contenu */}
+      {/* Inhalt */}
       <div className={`flex flex-col flex-1 ${compact ? 'p-1.5' : 'p-3 sm:p-4'}`}>
-        {/* Marque + Store */}
+        {/* Marke + Shop */}
         <div className="flex items-center justify-between mb-0.5 gap-2">
-          <p className="text-[#F97316] text-[10px] font-semibold uppercase tracking-wide truncate">
+          <p className="text-[#0052CC] text-[10px] font-semibold uppercase tracking-wide truncate">
             {produit.marque}
           </p>
           {produit.boutique && (
@@ -84,18 +84,18 @@ export default function CarteProduit({ produit, className, compact }: CarteProdu
           )}
         </div>
 
-        <p className={`font-heading font-semibold text-[#0F172A] leading-snug line-clamp-2 flex-1 ${compact ? 'text-[10px]' : 'text-xs sm:text-sm'}`}>
+        <p className={`font-heading font-semibold text-[#003087] leading-snug line-clamp-2 flex-1 ${compact ? 'text-[10px]' : 'text-xs sm:text-sm'}`}>
           {produit.nom}
         </p>
 
-        {/* Stock — masqué en compact */}
+        {/* Lager — im Kompaktmodus ausgeblendet */}
         {!compact && produit.en_stock !== undefined && (
           <p className={`text-xs font-medium mt-1 ${produit.en_stock ? 'text-green-600' : 'text-red-400'}`}>
             {produit.en_stock ? '● Auf Lager' : '○ Vergriffen'}
           </p>
         )}
 
-        {/* Prix */}
+        {/* Preis */}
         <div className={`flex items-center justify-between border-t border-[#E2E8F0] ${compact ? 'mt-1 pt-1' : 'mt-2.5 pt-2.5'}`}>
           {produit.prix_min ? (
             <div>
@@ -104,7 +104,7 @@ export default function CarteProduit({ produit, className, compact }: CarteProdu
                   {formatCHF(produit.prix_max!)}
                 </p>
               )}
-              <p className={`font-heading text-[#F97316] font-bold leading-none ${compact ? 'text-xs' : 'text-base sm:text-lg'}`}>
+              <p className={`font-heading text-[#0052CC] font-bold leading-none ${compact ? 'text-xs' : 'text-base sm:text-lg'}`}>
                 {formatCHF(produit.prix_min)}
               </p>
             </div>
@@ -112,8 +112,8 @@ export default function CarteProduit({ produit, className, compact }: CarteProdu
             <p className="text-xs text-[#64748B]">—</p>
           )}
           {!compact && (
-            <div className="w-9 h-9 rounded-full bg-[#F97316]/10 flex items-center justify-center group-hover:bg-[#F97316] transition-colors shrink-0">
-              <ArrowRight size={14} className="text-[#F97316] group-hover:text-white transition-colors" />
+            <div className="w-9 h-9 rounded-full bg-[#0052CC]/10 flex items-center justify-center group-hover:bg-[#0052CC] transition-colors shrink-0">
+              <ArrowRight size={14} className="text-[#0052CC] group-hover:text-white transition-colors" />
             </div>
           )}
         </div>

@@ -35,13 +35,13 @@ export default function CarouselEdito({ produits }: Props) {
 
   return (
     <div className="relative">
-      {/* Flèche gauche */}
+      {/* Pfeil links */}
       <button
         onClick={() => scrollRef.current?.scrollBy({ left: -600, behavior: 'smooth' })}
-        aria-label="Précédent"
+        aria-label="Vorherige"
         className={`hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10
           w-9 h-9 items-center justify-center rounded-full bg-white border border-[#E2E8F0]
-          shadow-md hover:border-[#F97316] hover:text-[#F97316] transition-all duration-150
+          shadow-md hover:border-[#0052CC] hover:text-[#0052CC] transition-all duration-150
           ${canLeft ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
       >
         <ChevronLeft size={18} />
@@ -61,13 +61,13 @@ export default function CarouselEdito({ produits }: Props) {
         </div>
       </div>
 
-      {/* Flèche droite */}
+      {/* Pfeil rechts */}
       <button
         onClick={() => scrollRef.current?.scrollBy({ left: 600, behavior: 'smooth' })}
-        aria-label="Suivant"
+        aria-label="Nächste"
         className={`hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10
           w-9 h-9 items-center justify-center rounded-full bg-white border border-[#E2E8F0]
-          shadow-md hover:border-[#F97316] hover:text-[#F97316] transition-all duration-150
+          shadow-md hover:border-[#0052CC] hover:text-[#0052CC] transition-all duration-150
           ${canRight ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
       >
         <ChevronRight size={18} />

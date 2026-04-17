@@ -9,30 +9,30 @@ const SLIDES = [
   {
     img: '/banners/pc-gaming.webp',
     tag: 'Gaming',
-    titre: 'PC Gaming & Consoles',
-    sousTitre: 'Les meilleures configs au meilleur prix',
-    cta: 'Voir les offres',
-    href: '/categories/gaming',
+    titre: 'PC Gaming & Konsolen',
+    sousTitre: 'Die besten Konfigurationen zum besten Preis',
+    cta: 'Angebote ansehen',
+    href: '/kategorien/gaming',
     bg: 'from-[#0a0a1a] to-[#1a1a3a]',
     accent: '#8B5CF6',
   },
   {
     img: '/banners/smartphone.webp',
     tag: 'Smartphones',
-    titre: 'Derniers smartphones',
-    sousTitre: 'Comparez Galaxy, iPhone et plus — tous les stores',
-    cta: 'Comparer maintenant',
-    href: '/categories/telephonie/smartphone?tri=prix_desc',
+    titre: 'Neueste Smartphones',
+    sousTitre: 'Galaxy, iPhone und mehr vergleichen — alle Shops',
+    cta: 'Jetzt vergleichen',
+    href: '/kategorien/telephonie/smartphone?tri=prix_desc',
     bg: 'from-[#0c1a2e] to-[#1a2f4a]',
-    accent: '#F97316',
+    accent: '#0052CC',
   },
   {
     img: '/banners/laptop.webp',
-    tag: 'Informatique',
+    tag: 'Informatik',
     titre: 'Laptops & Ultrabooks',
-    sousTitre: 'Travail, créativité, performance — trouvez votre modèle',
-    cta: 'Découvrir',
-    href: '/categories/informatique',
+    sousTitre: 'Arbeit, Kreativität, Leistung — finden Sie Ihr Modell',
+    cta: 'Entdecken',
+    href: '/kategorien/informatique',
     bg: 'from-[#0a1a10] to-[#142a1a]',
     accent: '#10B981',
   },
@@ -64,7 +64,7 @@ export default function BannerSlider() {
           key={i}
           className={`absolute inset-0 transition-opacity duration-700 ${i === active ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
         >
-          {/* Fond image */}
+          {/* Hintergrundbild */}
           <div className={`absolute inset-0 bg-gradient-to-br ${slide.bg}`} />
           <Image
             src={slide.img}
@@ -74,10 +74,10 @@ export default function BannerSlider() {
             sizes="(max-width: 768px) 100vw, 80vw"
             priority={i === 0}
           />
-          {/* Overlay gauche pour lisibilité */}
+          {/* Linker Overlay für Lesbarkeit */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
 
-          {/* Contenu */}
+          {/* Inhalt */}
           <div className="relative z-10 h-full flex flex-col justify-center px-5 sm:px-8 max-w-lg">
             <span
               className="inline-block text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full mb-2 w-fit"
@@ -103,23 +103,23 @@ export default function BannerSlider() {
         </div>
       ))}
 
-      {/* Flèches */}
+      {/* Pfeile */}
       <button
         onClick={prev}
-        aria-label="Précédent"
+        aria-label="Vorherige"
         className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 flex items-center justify-center text-white transition-all"
       >
         <ChevronLeft size={16} />
       </button>
       <button
         onClick={next}
-        aria-label="Suivant"
+        aria-label="Nächste"
         className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 flex items-center justify-center text-white transition-all"
       >
         <ChevronRight size={16} />
       </button>
 
-      {/* Dots */}
+      {/* Punkte */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
         {SLIDES.map((_, i) => (
           <button
@@ -130,7 +130,7 @@ export default function BannerSlider() {
             style={{
               width: i === active ? '24px' : '8px',
               height: '8px',
-              backgroundColor: i === active ? '#F97316' : 'rgba(255,255,255,0.4)',
+              backgroundColor: i === active ? '#0052CC' : 'rgba(255,255,255,0.4)',
             }}
           />
         ))}

@@ -13,7 +13,7 @@ export default function Pagination({ currentPage, totalPages, buildUrl, onPageCh
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1)
     .filter(p => p === 1 || p === totalPages || Math.abs(p - currentPage) <= 2)
 
-  const cls = 'inline-flex items-center gap-1 px-3 py-2 text-sm border border-[#E2E8F0] rounded-lg text-[#64748B] hover:border-[#F97316]/40 hover:text-[#F97316] transition-colors'
+  const cls = 'inline-flex items-center gap-1 px-3 py-2 text-sm border border-[#E2E8F0] rounded-lg text-[#64748B] hover:border-[#0052CC]/40 hover:text-[#0052CC] transition-colors'
 
   const PageItem = ({ page }: { page: number }) =>
     onPageChange ? (
@@ -30,12 +30,12 @@ export default function Pagination({ currentPage, totalPages, buildUrl, onPageCh
     )
 
   return (
-    <nav className="mt-10 flex items-center justify-center gap-1.5" aria-label="Pagination">
+    <nav className="mt-10 flex items-center justify-center gap-1.5" aria-label="Seitennavigation">
       {currentPage > 1 ? (
-        <NavBtn page={currentPage - 1}><ChevronLeft size={14} /> Préc.</NavBtn>
+        <NavBtn page={currentPage - 1}><ChevronLeft size={14} /> Zurück</NavBtn>
       ) : (
         <span className="inline-flex items-center gap-1 px-3 py-2 text-sm border border-[#E2E8F0] rounded-lg text-slate-300 cursor-not-allowed">
-          <ChevronLeft size={14} /> Préc.
+          <ChevronLeft size={14} /> Zurück
         </span>
       )}
 
@@ -45,7 +45,7 @@ export default function Pagination({ currentPage, totalPages, buildUrl, onPageCh
         }
         acc.push(
           p === currentPage ? (
-            <span key={p} className="inline-flex items-center justify-center w-9 h-9 text-sm font-semibold bg-[#F97316] text-white rounded-lg">
+            <span key={p} className="inline-flex items-center justify-center w-9 h-9 text-sm font-semibold bg-[#0052CC] text-white rounded-lg">
               {p}
             </span>
           ) : (
@@ -56,10 +56,10 @@ export default function Pagination({ currentPage, totalPages, buildUrl, onPageCh
       }, [])}
 
       {currentPage < totalPages ? (
-        <NavBtn page={currentPage + 1}>Suiv. <ChevronRight size={14} /></NavBtn>
+        <NavBtn page={currentPage + 1}>Weiter <ChevronRight size={14} /></NavBtn>
       ) : (
         <span className="inline-flex items-center gap-1 px-3 py-2 text-sm border border-[#E2E8F0] rounded-lg text-slate-300 cursor-not-allowed">
-          Suiv. <ChevronRight size={14} />
+          Weiter <ChevronRight size={14} />
         </span>
       )}
     </nav>

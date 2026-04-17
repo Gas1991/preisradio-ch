@@ -99,8 +99,8 @@ export default function UeberUnsPage() {
           {/* Mission */}
           <section className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="text-[#F97316] text-xs font-semibold uppercase tracking-widest mb-2">Unsere Mission</p>
-              <h2 className="font-heading text-[#0F172A] text-2xl md:text-3xl font-bold mb-4">
+              <p className="text-[#0052CC] text-xs font-semibold uppercase tracking-widest mb-2">Unsere Mission</p>
+              <h2 className="font-heading text-[#003087] text-2xl md:text-3xl font-bold mb-4">
                 Besser kaufen, weniger ausgeben
               </h2>
               <p className="text-[#64748B] text-sm leading-relaxed mb-4">
@@ -116,10 +116,10 @@ export default function UeberUnsPage() {
             <div className="grid grid-cols-2 gap-3">
               {WERTE.map(({ icon: Icon, titel, beschr }) => (
                 <div key={titel} className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-4">
-                  <div className="w-8 h-8 rounded-xl bg-[#F97316]/10 flex items-center justify-center mb-3">
-                    <Icon size={15} className="text-[#F97316]" />
+                  <div className="w-8 h-8 rounded-xl bg-[#0052CC]/10 flex items-center justify-center mb-3">
+                    <Icon size={15} className="text-[#0052CC]" />
                   </div>
-                  <p className="font-heading font-semibold text-[#0F172A] text-sm mb-1">{titel}</p>
+                  <p className="font-heading font-semibold text-[#003087] text-sm mb-1">{titel}</p>
                   <p className="text-[#64748B] text-xs leading-relaxed">{beschr}</p>
                 </div>
               ))}
@@ -128,7 +128,7 @@ export default function UeberUnsPage() {
 
           {/* Shops */}
           <section>
-            <h2 className="font-heading text-[#0F172A] text-xl font-bold mb-2">Verglichene Shops</h2>
+            <h2 className="font-heading text-[#003087] text-xl font-bold mb-2">Verglichene Shops</h2>
             <p className="text-[#64748B] text-sm mb-5">
               Priesradio aggregiert Daten von 3 offiziellen Schweizer Shops.
             </p>
@@ -144,14 +144,14 @@ export default function UeberUnsPage() {
 
           {/* Kategorien */}
           <section>
-            <h2 className="font-heading text-[#0F172A] text-xl font-bold mb-2">Verfügbare Kategorien</h2>
+            <h2 className="font-heading text-[#003087] text-xl font-bold mb-2">Verfügbare Kategorien</h2>
             <p className="text-[#64748B] text-sm mb-5">
               Über 100 000 Produkte verglichen in 8 Hauptkategorien.
             </p>
             <div className="flex flex-wrap gap-2">
               {KATEGORIEN.map(kat => (
                 <span key={kat} className="bg-[#F8FAFC] border border-[#E2E8F0] text-[#334155] text-sm px-3 py-1.5 rounded-full flex items-center gap-1.5">
-                  <CheckCircle size={12} className="text-[#F97316]" />
+                  <CheckCircle size={12} className="text-[#0052CC]" />
                   {kat}
                 </span>
               ))}
@@ -160,11 +160,11 @@ export default function UeberUnsPage() {
 
           {/* FAQ */}
           <section>
-            <h2 className="font-heading text-[#0F172A] text-xl font-bold mb-6">Häufige Fragen</h2>
+            <h2 className="font-heading text-[#003087] text-xl font-bold mb-6">Häufige Fragen</h2>
             <div className="space-y-4">
               {FAQ.map(({ f, a }) => (
                 <div key={f} className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-5">
-                  <p className="font-semibold text-[#0F172A] text-sm mb-2">{f}</p>
+                  <p className="font-semibold text-[#003087] text-sm mb-2">{f}</p>
                   <p className="text-[#475569] text-sm leading-relaxed">{a}</p>
                 </div>
               ))}
@@ -172,7 +172,7 @@ export default function UeberUnsPage() {
           </section>
 
           {/* CTA Shop */}
-          <section className="bg-[#0F172A] rounded-2xl p-8 text-center">
+          <section className="bg-[#003087] rounded-2xl p-8 text-center">
             <h2 className="font-heading text-white text-xl font-bold mb-2">
               Sie haben einen High-Tech-Shop?
             </h2>
@@ -181,7 +181,7 @@ export default function UeberUnsPage() {
             </p>
             <Link
               href="/hinzufuegen"
-              className="inline-flex items-center gap-2 bg-[#F97316] hover:bg-[#EA6C0A] text-white font-semibold px-6 py-3 rounded-xl transition-colors text-sm"
+              className="inline-flex items-center gap-2 bg-[#D0021B] hover:bg-[#B50018] text-white font-semibold px-6 py-3 rounded-xl transition-colors text-sm"
             >
               Meinen Shop referenzieren
             </Link>
