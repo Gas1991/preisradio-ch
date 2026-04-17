@@ -7,44 +7,44 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const CATEGORIES = [
   {
-    href: '/kategorien/telephonie/smartphone?tri=prix_desc',
-    label: 'Telefonie',
+    href: '/kategorien/smartphones',
+    label: 'Smartphones',
     img: '/banners/cat-smartphones.webp',
   },
   {
-    href: '/kategorien/informatique',
-    label: 'Informatik',
-    img: '/banners/cat-laptops.webp',
+    href: '/kategorien/kaffeemaschinen',
+    label: 'Kaffeemaschinen',
+    img: '/banners/cat-kaffeemaschinen.webp',
   },
   {
-    href: '/kategorien/gaming',
-    label: 'Gaming',
-    img: '/banners/cat-gaming.webp',
+    href: '/kategorien/kuehlschrank',
+    label: 'Kühlschrank',
+    img: '/banners/cat-kuehlschrank.webp',
   },
   {
-    href: '/kategorien/tv-et-son',
-    label: 'TV & Audio',
-    img: '/banners/cat-audio.webp',
+    href: '/kategorien/waschmaschine',
+    label: 'Waschmaschine',
+    img: '/banners/cat-waschmaschine.webp',
   },
   {
-    href: '/kategorien/electromenager',
-    label: 'Haushaltsgeräte',
-    img: '/banners/cat-electromenager.webp',
+    href: '/kategorien/staubsauger-roboter',
+    label: 'Staubsauger',
+    img: '/banners/cat-staubsauger.webp',
   },
   {
-    href: '/kategorien/photo-et-video',
-    label: 'Foto & Video',
-    img: '/banners/cat-photo.webp',
+    href: '/kategorien/fritteuse',
+    label: 'Fritteuse',
+    img: '/banners/cat-fritteuse.webp',
   },
   {
-    href: '/kategorien/surveillance',
-    label: 'Überwachung',
-    img: '/banners/cat-moniteurs.webp',
+    href: '/kategorien/klimaanlage',
+    label: 'Klimaanlage',
+    img: '/banners/cat-klimaanlage.webp',
   },
   {
-    href: '/kategorien/energie',
-    label: 'Energie',
-    img: '/banners/cat-tablettes.webp',
+    href: '/kategorien/waeschetrockner',
+    label: 'Wäschetrockner',
+    img: '/banners/cat-waeschetrockner.webp',
   },
 ]
 

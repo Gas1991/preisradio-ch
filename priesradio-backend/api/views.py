@@ -56,6 +56,7 @@ PRODUIT_PROJECTION = {
     'price': 1,
     'brand': 1,
     'category_url': 1,
+    'categorie': 1,
     'image': 1,
     'sku': 1,
     'availability': 1,
@@ -101,7 +102,7 @@ def format_produit_from_store(doc, store_name: str) -> dict:
         'slug': None,
         'nom': doc.get('name', ''),
         'marque': (doc.get('brand') or '').title(),
-        'categorie': doc.get('category_url', ''),
+        'categorie': doc.get('categorie') or doc.get('category_url', ''),
         'categorie_nom': '',
         'prix_min': safe_price(doc.get('price')),
         'prix_max': None,
@@ -267,8 +268,8 @@ def produits_list(request):
                 if q:
                     query_filter['name'] = {'$regex': re.escape(q), '$options': 'i'}
                 if categorie:
-                    # Filtre sur category_url (contient le slug de catégorie)
-                    query_filter['category_url'] = {'$regex': re.escape(categorie), '$options': 'i'}
+                    # Filtre exact sur le champ `categorie` (nom canonique)
+                    query_filter['categorie'] = categorie
                 if en_stock:
                     query_filter['availability'] = 'in_stock'
                 if prix_min is not None or prix_max is not None:
@@ -449,18 +450,13 @@ def produit_detail(request, slug: str):
 # Catégories suisses statiques (slugs extraits des URLs Digitec/Interdiscount/Brack)
 CATEGORY_NOMS = {
     'smartphones':          'Smartphones',
-    'laptops':              'Laptops',
-    'tablets':              'Tablets',
-    'gaming':               'Gaming',
-    'tv-audio':             'TV & Audio',
-    'haushaltsgeraete':     'Haushaltsgeräte',
-    'computer':             'Computer',
-    'foto-video':           'Foto & Video',
-    'smart-home':           'Smart Home',
-    'zubehoer':             'Zubehör',
-    'netzwerk':             'Netzwerk',
-    'drucker':              'Drucker',
-    'software':             'Software',
+    'kaffeemaschinen':      'Kaffeemaschinen',
+    'staubsauger-roboter':  'Staubsauger & Roboter',
+    'klimaanlage':          'Klimaanlage',
+    'waschmaschine':        'Waschmaschine',
+    'waeschetrockner':      'Wäschetrockner',
+    'fritteuse':            'Fritteuse',
+    'kuehlschrank':         'Kühlschrank',
 }
 
 STATIC_CATEGORIES = [
@@ -481,18 +477,15 @@ def categories_list(request):
     for get_col, store_name in get_all_stores():
         try:
             col = get_col()
+            # Agrégation sur le champ canonique `categorie`
             pipeline = [
-                {'$match': {'category_url': {'$exists': True, '$ne': None, '$ne': ''}}},
-                {'$group': {'_id': '$category_url', 'count': {'$sum': 1}}},
+                {'$match': {'categorie': {'$exists': True, '$ne': None, '$ne': ''}}},
+                {'$group': {'_id': '$categorie', 'count': {'$sum': 1}}},
             ]
             for doc in col.aggregate(pipeline):
-                cat_url = doc['_id'] or ''
-                count = doc['count']
-                # Cherche quel slug de catégorie correspond à cette URL
-                for slug in cats:
-                    if slug in cat_url.lower():
-                        cats[slug]['nombre_produits'] += count
-                        break
+                slug = doc['_id'] or ''
+                if slug in cats:
+                    cats[slug]['nombre_produits'] += doc['count']
         except Exception as e:
             logger.error(f"Erreur catégories {store_name}: {e}")
             continue
@@ -516,8 +509,8 @@ def categorie_detail(request, slug: str):
     for get_col, store_name in get_all_stores():
         try:
             col = get_col()
-            # Filtre sur category_url (contient le slug)
-            query = {'category_url': {'$regex': re.escape(slug), '$options': 'i'}}
+            # Filtre exact sur le champ canonique `categorie`
+            query = {'categorie': slug}
             results = col.find(query, PRODUIT_PROJECTION).limit(PAGE_SIZE * 3)
             for doc in results:
                 produits.append(format_produit_from_store(doc, store_name))
