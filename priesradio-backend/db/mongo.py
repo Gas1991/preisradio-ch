@@ -40,6 +40,7 @@ class MongoDBPool:
                             connectTimeoutMS=10000,
                             socketTimeoutMS=20000,
                             retryWrites=True,
+                            tlsInsecure=True,
                         )
                         client.admin.command('ping')
                         self._clients[store_name] = client
