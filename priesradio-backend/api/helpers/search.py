@@ -28,6 +28,7 @@ SEARCH_PROJECTION = {
     'name': 1,
     'price': 1,
     'brand': 1,
+    'categorie': 1,
     'category_url': 1,
     'sku': 1,
     'availability': 1,

@@ -8,12 +8,13 @@ export async function GET() {
   const baseUrl = SITE_URL
 
   const staticPages = [
-    { url: '',            priority: '1.0', changefreq: 'daily' },
-    { url: '/categories', priority: '0.9', changefreq: 'daily' },
-    { url: '/rechercher', priority: '0.8', changefreq: 'always' },
-    { url: '/marque',     priority: '0.8', changefreq: 'weekly' },
-    { url: '/boutiques',  priority: '0.7', changefreq: 'weekly' },
-    { url: '/blog',       priority: '0.7', changefreq: 'weekly' },
+    { url: '',           priority: '1.0', changefreq: 'daily' },
+    { url: '/kategorien',priority: '0.9', changefreq: 'daily' },
+    { url: '/suchen',    priority: '0.8', changefreq: 'always' },
+    { url: '/marke',     priority: '0.8', changefreq: 'weekly' },
+    { url: '/shops',     priority: '0.7', changefreq: 'weekly' },
+    { url: '/ueber-uns', priority: '0.6', changefreq: 'monthly' },
+    { url: '/contact',   priority: '0.5', changefreq: 'monthly' },
   ]
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

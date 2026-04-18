@@ -10,11 +10,8 @@ export async function GET() {
   const sitemaps = [
     { loc: `${baseUrl}/static-sitemap.xml`, lastmod: new Date().toISOString() },
     { loc: `${baseUrl}/categorie-sitemap.xml`, lastmod: new Date().toISOString() },
-    { loc: `${baseUrl}/souscategorie-sitemap.xml`, lastmod: new Date().toISOString() },
     { loc: `${baseUrl}/brand-sitemap.xml`, lastmod: new Date().toISOString() },
-    { loc: `${baseUrl}/produit-sitemap-1.xml`, lastmod: new Date().toISOString() },
-    { loc: `${baseUrl}/produit-sitemap-2.xml`, lastmod: new Date().toISOString() },
-    { loc: `${baseUrl}/produit-sitemap-3.xml`, lastmod: new Date().toISOString() },
+    { loc: `${baseUrl}/produit-sitemap.xml`, lastmod: new Date().toISOString() },
   ]
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
