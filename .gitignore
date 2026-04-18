@@ -4,3 +4,9 @@
 *.jpg
 .DS_Store
 Thumbs.db
+
+# Exceptions : public assets dans les projets
+!priesradio-frontend/public/**/*.png
+!priesradio-frontend/public/**/*.svg
+!priesradio-frontend/public/**/*.jpg
+!priesradio-frontend/public/**/*.jpeg

@@ -2,7 +2,7 @@
 
 // SSR → appel direct au backend (serveur → serveur, pas de CORS)
 // CSR → proxy via Next.js API Route /api/proxy/* (même domaine, pas de CORS)
-const SERVER_API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1'
+const SERVER_API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://biggergas.serv00.net/api/v1'
 const CLIENT_API_URL = '/api/proxy'
 
 export const API_URL = typeof window === 'undefined' ? SERVER_API_URL : CLIENT_API_URL
