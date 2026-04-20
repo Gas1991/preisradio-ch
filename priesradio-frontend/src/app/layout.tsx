@@ -19,7 +19,7 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 const GTM_ID     = 'GTM-T7FNCLZT'
-const GA4_ID     = 'G-5H9RJNSB6R'
+const GA4_ID     = 'G-J0LYKR13KX'
 const ADSENSE_ID = 'ca-pub-8451378376537532'
 
 export const metadata: Metadata = {
