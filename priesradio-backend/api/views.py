@@ -14,6 +14,7 @@ Endpoints :
   GET  /api/v1/boutiques/          → liste boutiques
   POST /api/v1/demandes/           → soumettre une demande
 """
+import base64
 import logging
 import re
 import unicodedata
@@ -170,7 +171,13 @@ def produits_list(request):
     - tri → prix_asc ou prix_desc appliqué après déduplication
     - Post-filtrage par pertinence pour queries multi-mots
     """
-    q = request.GET.get('q', '').replace('_', ' ').strip()
+    q_raw = request.GET.get('q', '').strip()
+    try:
+        # Base64url decode (frontend encode pour contourner WAF iphone/ipad/espaces)
+        padded = q_raw.replace('-', '+').replace('_', '/') + '=' * (-len(q_raw) % 4)
+        q = base64.b64decode(padded).decode('utf-8').strip()
+    except Exception:
+        q = q_raw.replace('_', ' ').strip()  # fallback legacy
     categorie = request.GET.get('categorie', '').strip()
     marque_raw = request.GET.get('marque', '').strip()
     marques = [m.strip() for m in marque_raw.split(',') if m.strip()]
