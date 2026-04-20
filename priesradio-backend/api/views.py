@@ -25,7 +25,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 
-from db.mongo import get_all_stores
+from db.mongo import get_all_stores, get_digitec, get_interdiscount, get_brack
 from .models import BlogPost, BlogSummary, BlogSpecifications, BlogSection, StoreRequest
 from .helpers.search import (
     clean_search_query,
@@ -633,6 +633,37 @@ def blog_detail(request, slug: str):
 def boutiques_list(request):
     """GET /api/v1/boutiques/"""
     return Response({'data': BOUTIQUES, 'meta': {'total_items': len(BOUTIQUES)}})
+
+
+# ============================================
+# SITEMAP IDS
+# ============================================
+
+STORE_GETTERS = {
+    'digitec':       get_digitec,
+    'interdiscount': get_interdiscount,
+    'brack':         get_brack,
+}
+
+@api_view(['GET'])
+def sitemap_ids(request):
+    """
+    GET /api/v1/sitemap-ids/?store=digitec|interdiscount|brack
+    Retourne tous les IDs (_id as string) d'un store pour le sitemap XML.
+    """
+    store = request.GET.get('store', '').lower()
+    if store not in STORE_GETTERS:
+        return Response(
+            {'error': 'Paramètre store requis : digitec | interdiscount | brack'},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+    try:
+        col = STORE_GETTERS[store]()
+        ids = [str(doc['_id']) for doc in col.find({}, {'_id': 1})]
+        return Response({'ids': ids, 'total': len(ids)})
+    except Exception as e:
+        logger.error(f"Erreur sitemap_ids {store}: {e}")
+        return Response({'error': 'Erreur serveur'}, status=status.HTTP_502_BAD_GATEWAY)
 
 
 # ============================================

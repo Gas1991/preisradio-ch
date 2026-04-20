@@ -28,4 +28,7 @@ urlpatterns = [
 
     # Demandes
     path('demandes/', views.demandes_create, name='demandes-create'),
+
+    # Sitemap IDs (pour robots/SEO)
+    path('sitemap-ids/', views.sitemap_ids, name='sitemap-ids'),
 ]
