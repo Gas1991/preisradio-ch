@@ -102,7 +102,7 @@ def format_produit_from_store(doc, store_name: str) -> dict:
         'slug': None,
         'nom': doc.get('name', ''),
         'marque': (doc.get('brand') or '').title(),
-        'categorie': doc.get('categorie') or doc.get('category_url', ''),
+        'categorie': doc.get('categorie') or '',
         'categorie_nom': '',
         'prix_min': safe_price(doc.get('price')),
         'prix_max': None,
@@ -170,7 +170,7 @@ def produits_list(request):
     - tri → prix_asc ou prix_desc appliqué après déduplication
     - Post-filtrage par pertinence pour queries multi-mots
     """
-    q = request.GET.get('q', '').strip()
+    q = request.GET.get('q', '').replace('_', ' ').strip()
     categorie = request.GET.get('categorie', '').strip()
     marque_raw = request.GET.get('marque', '').strip()
     marques = [m.strip() for m in marque_raw.split(',') if m.strip()]
@@ -428,7 +428,7 @@ def produit_detail(request, slug: str):
         'slug': slug,
         'nom': found_doc.get('name', ''),
         'marque': (found_doc.get('brand') or '').title(),
-        'categorie': found_doc.get('category_url', ''),
+        'categorie': found_doc.get('categorie') or '',
         'categorie_nom': '',
         'sku': sku,
         'image': found_doc.get('image', ''),

@@ -4,9 +4,15 @@ import { SITE_URL, API_URL } from '@/lib/config'
 export const dynamic = 'force-dynamic'
 export const revalidate = 7200
 
-const CATEGORIES = [
-  'informatique', 'telephonie', 'electromenager', 'gaming',
-  'tv-et-son', 'photo-et-video', 'surveillance', 'energie', 'bureau-et-papeterie',
+const SWISS_CATEGORIES = [
+  'smartphones',
+  'kaffeemaschinen',
+  'staubsauger-roboter',
+  'klimaanlage',
+  'waschmaschine',
+  'waeschetrockner',
+  'fritteuse',
+  'kuehlschrank',
 ]
 
 export async function GET() {
@@ -14,8 +20,7 @@ export async function GET() {
   const seen = new Set<string>()
   const urls: string[] = []
 
-  for (const cat of CATEGORIES) {
-    // Récupérer max 3 pages par catégorie (60 produits)
+  for (const cat of SWISS_CATEGORIES) {
     for (let page = 1; page <= 3; page++) {
       try {
         const res = await fetch(`${API_URL}/categories/${cat}/?page=${page}`, {
@@ -29,7 +34,7 @@ export async function GET() {
           if (p.id && !seen.has(p.id)) {
             seen.add(p.id)
             urls.push(`  <url>
-    <loc>${baseUrl}/produit/${p.id}</loc>
+    <loc>${baseUrl}/produkt/${p.id}</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

@@ -13,7 +13,7 @@ export async function getProdukte(params?: {
   tri?: string
 }): Promise<ReponseAPI<Produkt[]>> {
   const clean: Record<string, string> = {}
-  if (params?.q) clean.q = params.q
+  if (params?.q) clean.q = params.q.replace(/ /g, '_')
   if (params?.page && params.page > 1) clean.page = String(params.page)
   if (params?.categorie) clean.categorie = params.categorie
   if (params?.marque) clean.marque = Array.isArray(params.marque) ? params.marque.join(',') : params.marque

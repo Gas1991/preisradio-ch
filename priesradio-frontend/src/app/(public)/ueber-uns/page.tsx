@@ -70,11 +70,11 @@ export default function UeberUnsPage() {
     '@context': 'https://schema.org',
     '@type': 'AboutPage',
     name: 'Über uns – Priesradio',
-    url: 'https://ch.priesradio.de/ueber-uns',
+    url: 'https://ch.preisradio.de/ueber-uns',
     mainEntity: {
       '@type': 'Organization',
       name: 'Priesradio',
-      url: 'https://ch.priesradio.de',
+      url: 'https://ch.preisradio.de',
       description: 'Preisvergleich für High-Tech in der Schweiz. Vergleicht Preise bei Digitec, Interdiscount und Brack.',
       foundingDate: '2025',
       areaServed: 'Switzerland',

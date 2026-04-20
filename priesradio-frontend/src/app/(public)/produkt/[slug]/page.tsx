@@ -10,6 +10,10 @@ import {
   CheckCircle, XCircle, Hash, Store, Barcode,
 } from 'lucide-react'
 
+function slugToLabel(s: string): string {
+  return s.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+}
+
 const STORE_LOGOS: Record<string, string> = {
   digitec:       '/shops/digitec.png',
   interdiscount: '/shops/interdiscount.png',
@@ -113,7 +117,7 @@ export default async function ProduktDetailPage({ params }: Props) {
         returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
         merchantReturnDays: 14,
         applicableCountry: 'CH',
-        returnPolicyUrl: RETURN_URLS[o.boutique?.toLowerCase() || ''] || 'https://ch.priesradio.de',
+        returnPolicyUrl: RETURN_URLS[o.boutique?.toLowerCase() || ''] || 'https://ch.preisradio.de',
       },
     })),
   }
@@ -122,12 +126,12 @@ export default async function ProduktDetailPage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Startseite', item: 'https://ch.priesradio.de' },
+      { '@type': 'ListItem', position: 1, name: 'Startseite', item: 'https://ch.preisradio.de' },
       ...(produit.categorie ? [
-        { '@type': 'ListItem', position: 2, name: produit.categorie, item: `https://ch.priesradio.de/kategorien/${produit.categorie}` },
-        { '@type': 'ListItem', position: 3, name: produit.nom, item: `https://ch.priesradio.de/produkt/${slug}` },
+        { '@type': 'ListItem', position: 2, name: slugToLabel(produit.categorie), item: `https://ch.preisradio.de/kategorien/${produit.categorie}` },
+        { '@type': 'ListItem', position: 3, name: produit.nom, item: `https://ch.preisradio.de/produkt/${slug}` },
       ] : [
-        { '@type': 'ListItem', position: 2, name: produit.nom, item: `https://ch.priesradio.de/produkt/${slug}` },
+        { '@type': 'ListItem', position: 2, name: produit.nom, item: `https://ch.preisradio.de/produkt/${slug}` },
       ]),
     ],
   }
@@ -146,7 +150,7 @@ export default async function ProduktDetailPage({ params }: Props) {
             {produit.categorie ? (
               <>
                 <Link href={`/kategorien/${produit.categorie}`} className="hover:text-slate-300 transition-colors">
-                  {produit.categorie}
+                  {slugToLabel(produit.categorie)}
                 </Link>
                 <ChevronRight size={12} />
               </>

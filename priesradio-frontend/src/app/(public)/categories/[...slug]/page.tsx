@@ -99,14 +99,14 @@ export default async function CategorieDetailPage({ params, searchParams }: Prop
   if (!categorie) notFound()
 
   const breadcrumbItems = [
-    { name: 'Startseite', url: 'https://ch.priesradio.de' },
-    { name: 'Kategorien', url: 'https://ch.priesradio.de/categories' },
+    { name: 'Startseite', url: 'https://ch.preisradio.de' },
+    { name: 'Kategorien', url: 'https://ch.preisradio.de/categories' },
     ...(isSubcat
       ? [
-          { name: slugToLabel(slug[0]), url: `https://ch.priesradio.de/categories/${slug[0]}` },
-          { name: categorie.nom, url: `https://ch.priesradio.de/categories/${fullSlug}` },
+          { name: slugToLabel(slug[0]), url: `https://ch.preisradio.de/categories/${slug[0]}` },
+          { name: categorie.nom, url: `https://ch.preisradio.de/categories/${fullSlug}` },
         ]
-      : [{ name: categorie.nom, url: `https://ch.priesradio.de/categories/${fullSlug}` }]
+      : [{ name: categorie.nom, url: `https://ch.preisradio.de/categories/${fullSlug}` }]
     ),
   ]
 

@@ -15,7 +15,7 @@ import CategoryScope from '@/components/ui/CategoryScope'
 
 export const dynamic = 'force-dynamic'
 
-const SITE_URL = 'https://ch.priesradio.de'
+const SITE_URL = 'https://ch.preisradio.de'
 
 export const metadata: Metadata = {
   title: 'Priesradio - Preisvergleich Schweiz | Beste Preise 2026',
