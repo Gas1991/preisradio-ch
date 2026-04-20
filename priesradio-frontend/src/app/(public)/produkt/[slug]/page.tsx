@@ -14,6 +14,8 @@ function slugToLabel(s: string): string {
   return s.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
 }
 
+const AMAZON_TAG = 'ch.preisradio.de-21'
+
 const STORE_LOGOS: Record<string, string> = {
   digitec:       '/shops/digitec.png',
   interdiscount: '/shops/interdiscount.png',
@@ -247,17 +249,28 @@ export default async function ProduktDetailPage({ params }: Props) {
             )}
 
             {/* Direktlink Shop */}
-            {produit.url_boutique && (
+            <div className="flex flex-wrap gap-3">
+              {produit.url_boutique && (
+                <a
+                  href={produit.url_boutique}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#0052CC] hover:bg-[#003B9C] text-white text-sm font-semibold px-5 py-3 rounded-xl transition-colors"
+                >
+                  Auf {produit.boutique || 'Shop'} ansehen
+                  <ExternalLink size={14} />
+                </a>
+              )}
               <a
-                href={produit.url_boutique}
+                href={`https://www.amazon.de/s?k=${encodeURIComponent(produit.nom)}&tag=${AMAZON_TAG}`}
                 target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#0052CC] hover:bg-[#003B9C] text-white text-sm font-semibold px-5 py-3 rounded-xl transition-colors"
+                rel="noopener noreferrer sponsored"
+                className="inline-flex items-center gap-2 bg-[#FF9900] hover:bg-[#e68900] text-white text-sm font-semibold px-5 py-3 rounded-xl transition-colors"
               >
-                Auf {produit.boutique || 'Shop'} ansehen
+                Bei Amazon suchen
                 <ExternalLink size={14} />
               </a>
-            )}
+            </div>
 
             {/* Beschreibung */}
             {produit.description && (
@@ -287,6 +300,7 @@ export default async function ProduktDetailPage({ params }: Props) {
                     <span className="text-right">Aktion</span>
                   </div>
                   {produit.offres.map((offre, i) => {
+                    const amazonUrl = `https://www.amazon.de/s?k=${encodeURIComponent(produit.nom)}&tag=${AMAZON_TAG}`
                     const logoKey = offre.boutique.toLowerCase()
                     const logo = STORE_LOGOS[logoKey]
                     const storeRowClass = STORE_COLORS[logoKey] ?? 'bg-slate-50 text-slate-500 border-slate-100'
@@ -342,6 +356,27 @@ export default async function ProduktDetailPage({ params }: Props) {
                       </div>
                     )
                   })}
+                  {/* Amazon affiliate row */}
+                  <div className="grid grid-cols-3 items-center px-4 py-4 text-sm border-t border-[#E2E8F0]">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[11px] font-bold px-2 py-0.5 rounded-full border bg-orange-50 text-orange-600 border-orange-100">
+                        Amazon.de
+                      </span>
+                    </div>
+                    <div className="text-center">
+                      <span className="text-sm text-[#64748B]">Preis prüfen</span>
+                    </div>
+                    <div className="flex justify-end">
+                      <a
+                        href={`https://www.amazon.de/s?k=${encodeURIComponent(produit.nom)}&tag=${AMAZON_TAG}`}
+                        target="_blank"
+                        rel="noopener noreferrer sponsored"
+                        className="inline-flex items-center gap-1 text-xs bg-[#FF9900] hover:bg-[#e68900] text-white px-3 py-1.5 rounded-lg transition-colors"
+                      >
+                        Amazon <ExternalLink size={10} />
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
