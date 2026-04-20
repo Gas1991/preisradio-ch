@@ -28,7 +28,7 @@ interface Props {
 export default async function SuchenPage({ searchParams }: Props) {
   const params = await searchParams
   const {
-    q = '',
+    q: qRaw = '',
     page = '1',
     categorie = '',
     marque = '',
@@ -39,6 +39,7 @@ export default async function SuchenPage({ searchParams }: Props) {
     tri = '',
   } = params
 
+  const q = qRaw.trim()
   const marques = marque.split(',').filter(Boolean)
   const hasSearch = !!(q || categorie || marque || prix_min || prix_max || boutique || en_stock === '1')
 
