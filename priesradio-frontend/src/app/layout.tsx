@@ -40,6 +40,9 @@ export const metadata: Metadata = {
   other: {
     'google-adsense-account': ADSENSE_ID,
   },
+  verification: {
+    yandex: 'a09b3fa0c24abb5a',
+  },
 
   openGraph: {
     type: 'website',
