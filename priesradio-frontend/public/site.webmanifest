@@ -1,6 +1,6 @@
 {
-  "name": "Toprix",
-  "short_name": "Toprix.tn",
+  "name": "CH.PreisRadio",
+  "short_name": "CH.PreisRadio",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -16,6 +16,6 @@
     }
   ],
   "theme_color": "#ffffff",
-  "background_color": "#f9f9f9",
+  "background_color": "#ffffff",
   "display": "standalone"
 }
