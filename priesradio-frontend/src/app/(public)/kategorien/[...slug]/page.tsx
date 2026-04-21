@@ -5,6 +5,8 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ChevronRight } from 'lucide-react'
 import FilteredProductsSection from '@/components/product/FilteredProductsSection'
+import FaqSection from '@/components/ui/FaqSection'
+import { CATEGORY_FAQS } from '@/lib/faq-categories'
 
 export const dynamic = 'force-dynamic'
 
@@ -199,6 +201,11 @@ export default async function KategorieDetailPage({ params, searchParams }: Prop
           hideCategorie={true}
           hideBrand={false}
         />
+
+        {/* FAQ SSR + microdata FAQPage */}
+        {CATEGORY_FAQS[slug[0]] && (
+          <FaqSection items={CATEGORY_FAQS[slug[0]]} />
+        )}
       </div>
     </div>
     </>
