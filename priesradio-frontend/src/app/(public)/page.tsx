@@ -74,17 +74,32 @@ function SectionHeader({
 }
 
 export default async function StartseiteSeite() {
-  const [smartphonesRes, kaffeeRes, kuehlRes, waschRes] = await Promise.allSettled([
+  const [smartphonesRes, kaffeeRes, kuehlRes, waschRes, staubRes, fritteuseRes, klimaRes, trocknerRes] = await Promise.allSettled([
     getProdukte({ categorie: 'smartphones' }),
     getProdukte({ categorie: 'kaffeemaschinen' }),
     getProdukte({ categorie: 'kuehlschrank' }),
     getProdukte({ categorie: 'waschmaschine' }),
+    getProdukte({ categorie: 'staubsauger-roboter' }),
+    getProdukte({ categorie: 'fritteuse' }),
+    getProdukte({ categorie: 'klimaanlage' }),
+    getProdukte({ categorie: 'waeschetrockner' }),
   ])
 
   const smartphones = smartphonesRes.status === 'fulfilled' ? smartphonesRes.value.data.slice(0, 20) : []
   const kaffee      = kaffeeRes.status      === 'fulfilled' ? kaffeeRes.value.data.slice(0, 20)      : []
   const kuehl       = kuehlRes.status       === 'fulfilled' ? kuehlRes.value.data.slice(0, 20)       : []
   const wasch       = waschRes.status       === 'fulfilled' ? waschRes.value.data.slice(0, 20)       : []
+
+  const categoryImages: Record<string, string> = {
+    smartphones:          smartphonesRes.status === 'fulfilled' ? (smartphonesRes.value.data[0]?.image ?? '') : '',
+    kaffeemaschinen:      kaffeeRes.status      === 'fulfilled' ? (kaffeeRes.value.data[0]?.image      ?? '') : '',
+    kuehlschrank:         kuehlRes.status       === 'fulfilled' ? (kuehlRes.value.data[0]?.image       ?? '') : '',
+    waschmaschine:        waschRes.status       === 'fulfilled' ? (waschRes.value.data[0]?.image       ?? '') : '',
+    'staubsauger-roboter': staubRes.status      === 'fulfilled' ? (staubRes.value.data[0]?.image       ?? '') : '',
+    fritteuse:            fritteuseRes.status   === 'fulfilled' ? (fritteuseRes.value.data[0]?.image   ?? '') : '',
+    klimaanlage:          klimaRes.status       === 'fulfilled' ? (klimaRes.value.data[0]?.image       ?? '') : '',
+    waeschetrockner:      trocknerRes.status    === 'fulfilled' ? (trocknerRes.value.data[0]?.image    ?? '') : '',
+  }
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -187,7 +202,7 @@ export default async function StartseiteSeite() {
       {/* ──────────────────── KATEGORIEN-KARUSSELL ────────────────────────────── */}
       <section className="py-6 sm:py-8 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          <CarouselCategories />
+          <CarouselCategories categoryImages={categoryImages} />
         </div>
       </section>
 

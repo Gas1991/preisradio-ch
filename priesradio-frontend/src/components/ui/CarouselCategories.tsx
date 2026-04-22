@@ -48,7 +48,7 @@ const CATEGORIES = [
   },
 ]
 
-export default function CarouselCategories() {
+export default function CarouselCategories({ categoryImages = {} }: { categoryImages?: Record<string, string> }) {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [canLeft, setCanLeft]   = useState(false)
   const [canRight, setCanRight] = useState(true)
@@ -86,7 +86,10 @@ export default function CarouselCategories() {
         className="overflow-x-auto -mx-4 sm:-mx-0 px-4 sm:px-0 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         <div className="flex gap-3 sm:gap-4" style={{ width: 'max-content' }}>
-          {CATEGORIES.map(({ href, label, img }) => (
+          {CATEGORIES.map(({ href, label, img }) => {
+            const slug = href.replace('/kategorien/', '')
+            const src = categoryImages[slug] || img
+            return (
             <Link
               key={href}
               href={href}
@@ -94,11 +97,12 @@ export default function CarouselCategories() {
             >
               <div className="relative h-24 sm:h-28 overflow-hidden bg-[#F8FAFC]">
                 <Image
-                  src={img}
+                  src={src}
                   alt={label}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
                   sizes="(max-width: 640px) 144px, 176px"
+                  unoptimized={src.startsWith('http')}
                 />
               </div>
               <div className="bg-white px-3 py-2.5 flex items-center justify-between">
@@ -108,7 +112,7 @@ export default function CarouselCategories() {
                 <span className="text-[#CBD5E1] group-hover:text-[#0052CC] transition-colors text-xs">›</span>
               </div>
             </Link>
-          ))}
+          )})}
         </div>
       </div>
 
