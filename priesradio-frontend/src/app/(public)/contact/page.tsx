@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 import PageHero from '@/components/ui/PageHero'
 import { MessageSquare, Send, CheckCircle } from 'lucide-react'
-import { transporter, CONTACT_EMAIL } from '@/lib/mail'
+import { transporter, CONTACT_EMAIL, SMTP_FROM } from '@/lib/mail'
 
 export const metadata: Metadata = {
   title: 'Kontakt | Priesradio',
@@ -19,7 +19,7 @@ async function sendContact(formData: FormData) {
   if (nom && email && sujet && message) {
     try {
       await transporter.sendMail({
-        from: CONTACT_EMAIL,
+        from: SMTP_FROM,
         to: CONTACT_EMAIL,
         replyTo: email,
         subject: sujet,

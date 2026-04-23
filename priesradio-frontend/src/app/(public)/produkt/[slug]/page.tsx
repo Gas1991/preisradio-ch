@@ -3,6 +3,7 @@ import { getProdukt, getProdukte } from '@/lib/api/produits'
 import type { Produkt } from '@/types'
 import { notFound } from 'next/navigation'
 import CarteProduit from '@/components/product/CarteProduit'
+import SpecSection from '@/components/product/SpecSection'
 import Image from 'next/image'
 import Link from 'next/link'
 import {
@@ -389,10 +390,7 @@ export default async function ProduktDetailPage({ params }: Props) {
             <h2 className="font-heading text-[#003087] text-lg font-semibold mb-5">
               Technische Spezifikationen
             </h2>
-            <div
-              className="spec-html bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-4 overflow-x-auto"
-              dangerouslySetInnerHTML={{ __html: produit.specification }}
-            />
+            <SpecSection html={produit.specification} />
           </div>
         )}
 

@@ -10,4 +10,5 @@ export const transporter = nodemailer.createTransport({
   },
 })
 
-export const CONTACT_EMAIL = process.env.CONTACT_EMAIL!
+export const CONTACT_EMAIL = process.env.CONTACT_EMAIL!   // destinataire visible
+export const SMTP_FROM     = process.env.SMTP_USER!        // expéditeur autorisé par serv00
