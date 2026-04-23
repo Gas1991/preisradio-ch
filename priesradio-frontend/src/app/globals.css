@@ -70,6 +70,52 @@ h1,h2,h3,h4,h5,h6 {
   animation-play-state: paused;
 }
 
+/* ─── Specification HTML (from store scrapers) ─── */
+.spec-html table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  color: #475569;
+}
+.spec-html tr { border-bottom: 1px solid #E2E8F0; }
+.spec-html tr:last-child { border-bottom: none; }
+.spec-html td, .spec-html th {
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+.spec-html td:first-child, .spec-html th {
+  font-weight: 600;
+  color: #1E293B;
+  width: 40%;
+  background: #F8FAFC;
+}
+.spec-html h2, .spec-html h3 {
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  color: #003087;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 1rem 0 0.5rem;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #E2E8F0;
+}
+.spec-html ul, .spec-html dl {
+  font-size: 0.875rem;
+  color: #475569;
+  padding-left: 1rem;
+  margin: 0.25rem 0;
+}
+.spec-html li { margin-bottom: 2px; }
+.spec-html dt { font-weight: 600; color: #1E293B; }
+.spec-html dd { margin-left: 1rem; margin-bottom: 4px; }
+.spec-html p { font-size: 0.875rem; margin: 4px 0; }
+/* Hide store-specific UI cruft (buttons, nav, breadcrumbs inside spec HTML) */
+.spec-html button,
+.spec-html [class*="Collaps"],
+.spec-html [class*="pdp-sc"] > *:not(table):not(h2):not(h3):not(dl):not(ul):not(p) {
+  display: none !important;
+}
+
 /* ─── AdSense auto-ads blockieren ─── */
 .products-grid-zone {
   position: relative;

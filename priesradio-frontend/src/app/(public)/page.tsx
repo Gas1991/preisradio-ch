@@ -239,7 +239,7 @@ export default async function StartseiteSeite() {
       )}
 
       {/* ────────────────────────── SO FUNKTIONIERT ES ─────────────────────── */}
-      <BannerHowItWorks />
+      <BannerHowItWorks categoryImages={categoryImages} />
 
       {/* ══════════════════════════ KÜHLSCHRANK ══════════════════════════════════ */}
       {kuehl.length > 0 && (
@@ -306,7 +306,7 @@ export default async function StartseiteSeite() {
       )}
 
       {/* ──────────────────────── KATEGORIE-SCOPE ─────────────────────────────── */}
-      <CategoryScope />
+      <CategoryScope categoryImages={categoryImages} />
 
       {/* ────────────────────────────── MARKEN ──────────────────────────────── */}
       <section className="py-12 sm:py-16">

@@ -120,13 +120,14 @@ CORS_ALLOW_HEADERS = ['accept', 'authorization', 'content-type']
 # EMAIL (identique à public_python)
 # ============================================
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = config('EMAIL_HOST', default='mail3.serv00.com')
+EMAIL_HOST = config('EMAIL_HOST', default='mail11.serv00.com')
 EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
 EMAIL_USE_SSL = False
-EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='contact@preisradio.de')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
-DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='noreply@priesradio.ch')
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='contact@preisradio.de')
+CONTACT_EMAIL = config('CONTACT_EMAIL', default='contact@preisradio.de')
 
 # ============================================
 # CACHE LocMem (identique à public_python)

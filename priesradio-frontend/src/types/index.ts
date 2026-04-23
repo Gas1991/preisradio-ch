@@ -29,6 +29,7 @@ export interface Produkt {
   boutique?: string
   url_boutique?: string
   offres?: AngebotShop[]
+  specification?: string
 }
 
 // Alias français gardé pour compat avec code existant

@@ -430,6 +430,10 @@ def produit_detail(request, slug: str):
             'image': found_doc.get('image', ''),
         }]
 
+    spec = found_doc.get('specification', '')
+    if spec == '__no_spec__':
+        spec = ''
+
     return Response({
         'id': str(found_doc['_id']),
         'slug': slug,
@@ -447,6 +451,7 @@ def produit_detail(request, slug: str):
         'boutique': found_store,
         'url_boutique': found_doc.get('url', ''),
         'offres': all_offres,
+        'specification': spec,
     })
 
 

@@ -37,36 +37,40 @@ export function BannerStats() {
 
 const CAT_BANNERS = [
   {
-    href: '/categories/gaming/pc-gaming',
-    label: 'PC Gaming',
-    sub: 'Gaming-Setup & Zubehör',
-    img: '/banners/pc-gaming.webp',
+    slug: 'staubsauger-roboter',
+    href: '/kategorien/staubsauger-roboter',
+    label: 'Staubsauger-Roboter',
+    sub: 'Saug- & Wischroboter',
+    img: '/banners/cat-staubsauger.webp',
     tag: 'bg-purple-50 text-purple-700',
   },
   {
-    href: '/categories/informatique/pc-portable?tri=prix_desc',
-    label: 'Laptops',
-    sub: 'Notebooks & Ultrabooks',
-    img: '/banners/laptop.webp',
-    tag: 'bg-blue-50 text-blue-700',
-  },
-  {
-    href: '/categories/gaming/composants-gaming',
-    label: 'PC-Komponenten',
-    sub: 'Prozessoren, RAM, GPU & Speicher',
-    img: '/banners/composants-pc.webp',
+    slug: 'fritteuse',
+    href: '/kategorien/fritteuse',
+    label: 'Fritteusen',
+    sub: 'Heissluft & Öl',
+    img: '/banners/cat-fritteuse.webp',
     tag: 'bg-orange-50 text-orange-700',
   },
   {
-    href: '/categories/informatique/pc-bureau?tri=prix_desc',
-    label: 'Desktop-PC',
-    sub: 'Leistungsstarke Standrechner',
-    img: '/banners/pc-bureau.webp',
+    slug: 'klimaanlage',
+    href: '/kategorien/klimaanlage',
+    label: 'Klimaanlagen',
+    sub: 'Splits, Mobil & Lüftung',
+    img: '/banners/cat-klimaanlage.webp',
+    tag: 'bg-blue-50 text-blue-700',
+  },
+  {
+    slug: 'waeschetrockner',
+    href: '/kategorien/waeschetrockner',
+    label: 'Wäschetrockner',
+    sub: 'Wärme, Kondens & Abluft',
+    img: '/banners/cat-waeschetrockner.webp',
     tag: 'bg-slate-100 text-slate-700',
   },
 ]
 
-export function BannerHowItWorks() {
+export function BannerHowItWorks({ categoryImages = {} }: { categoryImages?: Record<string, string> }) {
   return (
     <div className="px-4 sm:px-6 py-10 sm:py-12">
       <div className="max-w-5xl mx-auto">
@@ -88,31 +92,37 @@ export function BannerHowItWorks() {
 
         {/* 4 Karten — desktop grid-cols-4 · mobile grid-cols-2 */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5">
-          {CAT_BANNERS.map(({ href, label, sub, img, tag }) => (
+          {CAT_BANNERS.map(({ slug, href, label, sub, img, tag }) => {
+            const src = categoryImages[slug] || img
+            const isProductImg = src.startsWith('http')
+            return (
             <Link
               key={href}
               href={href}
               className="group rounded-2xl overflow-hidden border border-[#E2E8F0] hover:shadow-lg hover:border-transparent transition-all duration-200"
             >
               {/* ── Bildbereich h-40 mobile · h-44 desktop ── */}
-              <div className="relative h-40 sm:h-44 overflow-hidden">
+              <div className="relative h-40 sm:h-44 overflow-hidden bg-[#F8FAFC]">
                 <Image
-                  src={img}
+                  src={src}
                   alt={label}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 640px) calc(100vw - 32px), 300px"
+                  className={`group-hover:scale-105 transition-transform duration-500 ${isProductImg ? 'object-contain p-3' : 'object-cover'}`}
+                  sizes="(max-width: 640px) calc(50vw - 24px), 240px"
+                  unoptimized={isProductImg}
                 />
                 {/* Overlay unten für Lesbarkeit */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent z-10" />
-                {/* Titel auf dem Bild */}
-                <p className="absolute bottom-3 left-4 text-white font-heading font-bold text-sm z-20 drop-shadow">
-                  {label}
-                </p>
-                {/* Schwebendes Badge */}
-                <span className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-full flex items-center gap-1 z-20">
-                  <Zap size={8} /> Ansehen
-                </span>
+                {!isProductImg && (
+                  <>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent z-10" />
+                    <p className="absolute bottom-3 left-4 text-white font-heading font-bold text-sm z-20 drop-shadow">
+                      {label}
+                    </p>
+                    <span className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-full flex items-center gap-1 z-20">
+                      <Zap size={8} /> Ansehen
+                    </span>
+                  </>
+                )}
               </div>
 
               {/* Kartenfuss */}
@@ -126,7 +136,7 @@ export function BannerHowItWorks() {
                 </span>
               </div>
             </Link>
-          ))}
+          )})}
         </div>
 
       </div>

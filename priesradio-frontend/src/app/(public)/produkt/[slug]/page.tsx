@@ -383,6 +383,19 @@ export default async function ProduktDetailPage({ params }: Props) {
           </div>
         </div>
 
+        {/* ── Spezifikationen ── */}
+        {produit.specification && (
+          <div className="mt-10 pt-8 border-t border-[#E2E8F0]">
+            <h2 className="font-heading text-[#003087] text-lg font-semibold mb-5">
+              Technische Spezifikationen
+            </h2>
+            <div
+              className="spec-html bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-4 overflow-x-auto"
+              dangerouslySetInnerHTML={{ __html: produit.specification }}
+            />
+          </div>
+        )}
+
         {/* ── Ähnliche Produkte ── */}
         {aehnliche.length > 0 && (
           <div className="mt-10 pt-8 border-t border-[#E2E8F0]">
