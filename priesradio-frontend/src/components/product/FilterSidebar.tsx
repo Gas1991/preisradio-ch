@@ -46,16 +46,14 @@ const BOUTIQUES = [
 ] as const
 
 export const PARENT_CATEGORIES = [
-  { slug: 'smartphones',      nom: 'Smartphones' },
-  { slug: 'laptops',          nom: 'Laptops' },
-  { slug: 'tablets',          nom: 'Tablets' },
-  { slug: 'gaming',           nom: 'Gaming' },
-  { slug: 'tv-audio',         nom: 'TV & Audio' },
-  { slug: 'haushaltsgeraete', nom: 'Haushaltsgeräte' },
-  { slug: 'computer',         nom: 'Computer' },
-  { slug: 'foto-video',       nom: 'Foto & Video' },
-  { slug: 'smart-home',       nom: 'Smart Home' },
-  { slug: 'netzwerk',         nom: 'Netzwerk' },
+  { slug: 'smartphones',         nom: 'Smartphones' },
+  { slug: 'kaffeemaschinen',     nom: 'Kaffeemaschinen' },
+  { slug: 'staubsauger-roboter', nom: 'Staubsauger & Roboter' },
+  { slug: 'klimaanlage',         nom: 'Klimaanlage' },
+  { slug: 'waschmaschine',       nom: 'Waschmaschine' },
+  { slug: 'waeschetrockner',     nom: 'Wäschetrockner' },
+  { slug: 'fritteuse',           nom: 'Fritteuse' },
+  { slug: 'kuehlschrank',        nom: 'Kühlschrank' },
 ]
 
 // ─── Akkordeon-Abschnitt ──────────────────────────────────────────────────────
