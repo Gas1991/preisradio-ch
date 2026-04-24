@@ -110,10 +110,18 @@ h1,h2,h3,h4,h5,h6 {
 .spec-html dd { margin-left: 1rem; margin-bottom: 4px; }
 .spec-html p { font-size: 0.875rem; margin: 4px 0; }
 /* Hide store-specific UI cruft (buttons, nav, breadcrumbs inside spec HTML) */
-.spec-html button,
-.spec-html [class*="Collaps"],
-.spec-html [class*="pdp-sc"] > *:not(table):not(h2):not(h3):not(dl):not(ul):not(p) {
+/* NB: ne PAS masquer [class*="Collaps"] — Brack utilise MuiCollapse-* pour ses tableaux */
+.spec-html > button,
+.spec-html nav,
+.spec-html [role="navigation"] {
   display: none !important;
+}
+/* MuiCollapse : forcer visible + hauteur auto (override inline style min-height) */
+.spec-html [class*="MuiCollapse"] {
+  display: block !important;
+  overflow: visible !important;
+  height: auto !important;
+  min-height: 0 !important;
 }
 
 /* ─── AdSense auto-ads blockieren ─── */
