@@ -3,7 +3,7 @@ import { getCategorieDetail } from '@/lib/api/categories'
 import { getProdukte } from '@/lib/api/produits'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ChevronRight } from 'lucide-react'
+import { ChevronRight, Tag } from 'lucide-react'
 import FilteredProductsSection from '@/components/product/FilteredProductsSection'
 import FaqSection from '@/components/ui/FaqSection'
 import { CATEGORY_FAQS } from '@/lib/faq-categories'
@@ -184,6 +184,39 @@ export default async function KategorieDetailPage({ params, searchParams }: Prop
             </div>
           </div>
         )}
+
+        {/* ── Marques populaires ── */}
+        {(() => {
+          const counts: Record<string, number> = {}
+          for (const p of produits) {
+            const b = (p.marque || p.brand || '').trim()
+            if (b) counts[b] = (counts[b] || 0) + 1
+          }
+          const topBrands = Object.entries(counts)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 4)
+            .map(([name]) => name)
+          if (topBrands.length === 0) return null
+          return (
+            <div className="pt-6 pb-2">
+              <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#94A3B8] mb-3">
+                Beliebte Marken
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {topBrands.map(brand => (
+                  <Link
+                    key={brand}
+                    href={`/marke/${encodeURIComponent(brand.toLowerCase())}`}
+                    className="inline-flex items-center gap-1.5 bg-white border border-[#E2E8F0] hover:border-[#0052CC] hover:bg-[#F0F5FF] text-[#1E293B] text-sm font-medium px-4 py-2 rounded-xl transition-all"
+                  >
+                    <Tag size={13} className="text-[#0052CC]" />
+                    {brand}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )
+        })()}
 
         {/* Filter + Produkte CSR */}
         <FilteredProductsSection

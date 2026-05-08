@@ -3,7 +3,7 @@ import { getMarque } from '@/lib/api/marques'
 import { getProdukte } from '@/lib/api/produits'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, LayoutGrid } from 'lucide-react'
 import FilteredProductsSection from '@/components/product/FilteredProductsSection'
 
 export const dynamic = 'force-dynamic'
@@ -110,6 +110,42 @@ export default async function MarkeDetailPage({ params, searchParams }: Props) {
       </section>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* ── Kategorien populaires de cette marque ── */}
+        {(() => {
+          const counts: Record<string, number> = {}
+          for (const p of (produits?.data ?? [])) {
+            const c = (p.categorie || '').trim()
+            if (c) counts[c] = (counts[c] || 0) + 1
+          }
+          const topCats = Object.entries(counts)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 4)
+            .map(([slug]) => slug)
+          if (topCats.length === 0) return null
+          const slugToLabel = (s: string) =>
+            s.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+          return (
+            <div className="pt-6 pb-2">
+              <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#94A3B8] mb-3">
+                Beliebte Kategorien
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {topCats.map(cat => (
+                  <Link
+                    key={cat}
+                    href={`/kategorien/${cat}`}
+                    className="inline-flex items-center gap-1.5 bg-white border border-[#E2E8F0] hover:border-[#0052CC] hover:bg-[#F0F5FF] text-[#1E293B] text-sm font-medium px-4 py-2 rounded-xl transition-all"
+                  >
+                    <LayoutGrid size={13} className="text-[#0052CC]" />
+                    {slugToLabel(cat)}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )
+        })()}
+
         <FilteredProductsSection
           initialProducts={produits?.data ?? []}
           initialMeta={produits?.meta ?? null}
