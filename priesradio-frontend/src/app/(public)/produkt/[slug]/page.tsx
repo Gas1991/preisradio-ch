@@ -9,6 +9,7 @@ import Link from 'next/link'
 import {
   ChevronRight, ExternalLink, Wrench,
   CheckCircle, XCircle, Hash, Store, Barcode,
+  Tag, LayoutGrid, ArrowRight,
 } from 'lucide-react'
 
 function slugToLabel(s: string): string {
@@ -196,9 +197,24 @@ export default async function ProduktDetailPage({ params }: Props) {
 
             {/* Badges */}
             <div className="flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 bg-[#0052CC]/10 text-[#0052CC] text-xs font-semibold px-2.5 py-1 rounded-full">
+              {/* Marque → lien maillage interne */}
+              <Link
+                href={`/marques/${encodeURIComponent(produit.marque.toLowerCase())}`}
+                className="inline-flex items-center gap-1.5 bg-[#0052CC]/10 text-[#0052CC] text-xs font-semibold px-2.5 py-1 rounded-full hover:bg-[#0052CC]/20 transition-colors"
+              >
+                <Tag size={10} />
                 {produit.marque}
-              </span>
+              </Link>
+              {/* Catégorie → lien maillage interne */}
+              {produit.categorie && (
+                <Link
+                  href={`/kategorien/${produit.categorie}`}
+                  className="inline-flex items-center gap-1.5 bg-[#F0FDF4] text-[#16A34A] border border-[#BBF7D0] text-xs font-semibold px-2.5 py-1 rounded-full hover:bg-[#DCFCE7] transition-colors"
+                >
+                  <LayoutGrid size={10} />
+                  {slugToLabel(produit.categorie)}
+                </Link>
+              )}
               {produit.boutique && (
                 <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border inline-flex items-center gap-1 ${storeClass}`}>
                   <Store size={10} />
@@ -407,6 +423,49 @@ export default async function ProduktDetailPage({ params }: Props) {
             </div>
           </div>
         )}
+
+        {/* ── Maillage interne ── */}
+        <div className="mt-10 pt-8 border-t border-[#E2E8F0]">
+          <h2 className="font-heading text-[#003087] text-base font-semibold mb-4">
+            Mehr entdecken
+          </h2>
+          <div className="flex flex-wrap gap-3">
+            {produit.categorie && (
+              <Link
+                href={`/kategorien/${produit.categorie}`}
+                className="group inline-flex items-center gap-2 bg-white border border-[#E2E8F0] hover:border-[#0052CC] hover:bg-[#F0F5FF] text-[#1E293B] text-sm font-medium px-4 py-2.5 rounded-xl transition-all"
+              >
+                <LayoutGrid size={14} className="text-[#0052CC]" />
+                Alle {slugToLabel(produit.categorie)} ansehen
+                <ArrowRight size={13} className="text-[#94A3B8] group-hover:text-[#0052CC] transition-colors" />
+              </Link>
+            )}
+            {produit.marque && (
+              <Link
+                href={`/marques/${encodeURIComponent(produit.marque.toLowerCase())}`}
+                className="group inline-flex items-center gap-2 bg-white border border-[#E2E8F0] hover:border-[#0052CC] hover:bg-[#F0F5FF] text-[#1E293B] text-sm font-medium px-4 py-2.5 rounded-xl transition-all"
+              >
+                <Tag size={14} className="text-[#0052CC]" />
+                Alle {produit.marque}-Produkte
+                <ArrowRight size={13} className="text-[#94A3B8] group-hover:text-[#0052CC] transition-colors" />
+              </Link>
+            )}
+            <Link
+              href="/kategorien"
+              className="group inline-flex items-center gap-2 bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#003087] hover:bg-[#EEF2FF] text-[#64748B] text-sm font-medium px-4 py-2.5 rounded-xl transition-all"
+            >
+              Alle Kategorien
+              <ArrowRight size={13} className="text-[#CBD5E1] group-hover:text-[#003087] transition-colors" />
+            </Link>
+            <Link
+              href="/marques"
+              className="group inline-flex items-center gap-2 bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#003087] hover:bg-[#EEF2FF] text-[#64748B] text-sm font-medium px-4 py-2.5 rounded-xl transition-all"
+            >
+              Alle Marken
+              <ArrowRight size={13} className="text-[#CBD5E1] group-hover:text-[#003087] transition-colors" />
+            </Link>
+          </div>
+        </div>
 
       </div>
     </div>
