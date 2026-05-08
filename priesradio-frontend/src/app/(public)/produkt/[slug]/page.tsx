@@ -426,34 +426,12 @@ export default async function ProduktDetailPage({ params }: Props) {
 
         {/* ── Maillage interne ── */}
         <div className="mt-10 pt-8 border-t border-[#E2E8F0]">
-          <h2 className="font-heading text-[#003087] text-base font-semibold mb-4">
-            Mehr entdecken
-          </h2>
           <div className="flex flex-wrap gap-3">
-            {produit.categorie && (
-              <Link
-                href={`/kategorien/${produit.categorie}`}
-                className="group inline-flex items-center gap-2 bg-white border border-[#E2E8F0] hover:border-[#0052CC] hover:bg-[#F0F5FF] text-[#1E293B] text-sm font-medium px-4 py-2.5 rounded-xl transition-all"
-              >
-                <LayoutGrid size={14} className="text-[#0052CC]" />
-                Alle {slugToLabel(produit.categorie)} ansehen
-                <ArrowRight size={13} className="text-[#94A3B8] group-hover:text-[#0052CC] transition-colors" />
-              </Link>
-            )}
-            {produit.marque && (
-              <Link
-                href={`/marke/${encodeURIComponent(produit.marque.toLowerCase())}`}
-                className="group inline-flex items-center gap-2 bg-white border border-[#E2E8F0] hover:border-[#0052CC] hover:bg-[#F0F5FF] text-[#1E293B] text-sm font-medium px-4 py-2.5 rounded-xl transition-all"
-              >
-                <Tag size={14} className="text-[#0052CC]" />
-                Alle {produit.marque}-Produkte
-                <ArrowRight size={13} className="text-[#94A3B8] group-hover:text-[#0052CC] transition-colors" />
-              </Link>
-            )}
             <Link
               href="/kategorien"
               className="group inline-flex items-center gap-2 bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#003087] hover:bg-[#EEF2FF] text-[#64748B] text-sm font-medium px-4 py-2.5 rounded-xl transition-all"
             >
+              <LayoutGrid size={14} className="text-[#0052CC]" />
               Alle Kategorien
               <ArrowRight size={13} className="text-[#CBD5E1] group-hover:text-[#003087] transition-colors" />
             </Link>
@@ -461,6 +439,7 @@ export default async function ProduktDetailPage({ params }: Props) {
               href="/marke"
               className="group inline-flex items-center gap-2 bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#003087] hover:bg-[#EEF2FF] text-[#64748B] text-sm font-medium px-4 py-2.5 rounded-xl transition-all"
             >
+              <Tag size={14} className="text-[#0052CC]" />
               Alle Marken
               <ArrowRight size={13} className="text-[#CBD5E1] group-hover:text-[#003087] transition-colors" />
             </Link>
