@@ -199,7 +199,7 @@ export default async function ProduktDetailPage({ params }: Props) {
             <div className="flex flex-wrap items-center gap-2">
               {/* Marque → lien maillage interne */}
               <Link
-                href={`/marques/${encodeURIComponent(produit.marque.toLowerCase())}`}
+                href={`/marke/${encodeURIComponent(produit.marque.toLowerCase())}`}
                 className="inline-flex items-center gap-1.5 bg-[#0052CC]/10 text-[#0052CC] text-xs font-semibold px-2.5 py-1 rounded-full hover:bg-[#0052CC]/20 transition-colors"
               >
                 <Tag size={10} />
@@ -442,7 +442,7 @@ export default async function ProduktDetailPage({ params }: Props) {
             )}
             {produit.marque && (
               <Link
-                href={`/marques/${encodeURIComponent(produit.marque.toLowerCase())}`}
+                href={`/marke/${encodeURIComponent(produit.marque.toLowerCase())}`}
                 className="group inline-flex items-center gap-2 bg-white border border-[#E2E8F0] hover:border-[#0052CC] hover:bg-[#F0F5FF] text-[#1E293B] text-sm font-medium px-4 py-2.5 rounded-xl transition-all"
               >
                 <Tag size={14} className="text-[#0052CC]" />
@@ -458,7 +458,7 @@ export default async function ProduktDetailPage({ params }: Props) {
               <ArrowRight size={13} className="text-[#CBD5E1] group-hover:text-[#003087] transition-colors" />
             </Link>
             <Link
-              href="/marques"
+              href="/marke"
               className="group inline-flex items-center gap-2 bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#003087] hover:bg-[#EEF2FF] text-[#64748B] text-sm font-medium px-4 py-2.5 rounded-xl transition-all"
             >
               Alle Marken
