@@ -29,6 +29,14 @@ export const metadata: Metadata = {
   },
   description: 'Preise vergleichen für Smartphones, Laptops und High-Tech in der Schweiz. Digitec, Interdiscount, Brack.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://ch.preisradio.de'),
+  alternates: {
+    canonical: 'https://ch.preisradio.de',
+    languages: {
+      'de-CH':    'https://ch.preisradio.de',
+      'de':       'https://ch.preisradio.de',
+      'x-default':'https://ch.preisradio.de',
+    },
+  },
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },

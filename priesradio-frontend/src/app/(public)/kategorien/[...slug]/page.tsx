@@ -41,7 +41,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title,
       description,
-      alternates: { canonical: `/kategorien/${fullSlug}` },
+      alternates: {
+        canonical: `/kategorien/${fullSlug}`,
+        languages: {
+          'de-CH':     `https://ch.preisradio.de/kategorien/${fullSlug}`,
+          'de':        `https://ch.preisradio.de/kategorien/${fullSlug}`,
+          'x-default': `https://ch.preisradio.de/kategorien/${fullSlug}`,
+        },
+      },
       openGraph: { title, description, type: 'website' },
     }
   } catch {
